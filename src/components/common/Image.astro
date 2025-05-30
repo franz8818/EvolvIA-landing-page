@@ -15,7 +15,7 @@ type ImageType = {
   attributes: HTMLAttributes<'img'>;
 };
 
-const props = Astro.props;
+const props = Astro.props; 
 
 if (props.alt === undefined || props.alt === null) {
   throw new Error();
