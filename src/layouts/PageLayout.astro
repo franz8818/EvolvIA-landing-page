@@ -19,13 +19,19 @@ const { metadata } = Astro.props;
   <slot name="announcement">
     <Announcement />
   </slot>
-  <slot name="header">
+
+  <!-- NAVBAR OCULTO POR EL MOMENTO -->
+  <!-- <slot name="header">
     <Header {...headerData} isSticky showRssFeed showToggleTheme />
-  </slot>
-  <main>
+  </slot> -->
+  
+  <main class="flex-grow">
     <slot />
   </main>
-  <slot name="footer">
+  
+  <!-- FOOTER OCULTO POR EL MOMENTO -->
+
+  <!-- <slot name="footer">
     <Footer {...footerData} />
-  </slot>
+  </slot> -->
 </Layout>
