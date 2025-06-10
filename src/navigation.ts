@@ -40,9 +40,9 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Términos y Condiciones', href: getPermalink('/terms') },
-    { text: 'Política de Privacidad', href: getPermalink('/privacy') },
-  ],
+  { text: 'Términos y Condiciones', href: getPermalink('/terms') },
+  { text: 'Política de Privacidad', href: getPermalink('/privacy') },
+],
   socialLinks: [
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
