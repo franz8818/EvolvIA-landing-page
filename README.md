@@ -1,61 +1,52 @@
-# EvolvIA — Landing Page
+# 🚀 EvolvIA — Landing Page Estratégica
 
-Bienvenido al repositorio de la landing page de **EvolvIA**, un proyecto estratégico diseñado y desarrollado por **Franz Seidel**, diseñador y desarrollador frontend freelance con enfoque en experiencias web dinámicas, limpias y funcionales.
+**EvolvIA** es una landing page minimalista, rápida y modular, desarrollada con **Astro 5**, **Tailwind CSS** y un diseño estratégico basado en la identidad y narrativa de la marca.
 
----
-
-## 🧠 Sobre EvolvIA
-
-**EvolvIA** es una iniciativa colombiana de acompañamiento estratégico para organizaciones y equipos humanos que buscan activar procesos de transformación profunda desde una arquitectura híbrida de inteligencia humana y artificial.
-
-Su propósito es claro: **no ofrecer soluciones enlatadas, sino activar saltos evolutivos**, con coherencia, sentido y estrategia.
+> **“No se trata de vender soluciones, sino de activar saltos evolutivos.”**
 
 ---
 
-## ✨ Sobre el proyecto
+## 🧩 **Sobre el proyecto**
 
-Este sitio fue desarrollado como una **landing page minimalista, escalable y modular**, con foco en velocidad, experiencia de usuario y fácil mantenimiento.
+Este repositorio forma parte de un proyecto freelance que combina **diseño estratégico**, **arquitectura de contenido** y una capa futura de **IA cognitiva**.
 
-**Características:**
-
-- Sitio estático con alto rendimiento.
-- Diseño responsive basado en Tailwind CSS.
-- Componentes modulares reutilizables (secciones, botones, layouts).
-- Navegación fluida y jerarquía clara del contenido.
-- Secciones clave: Hero, Manifiesto Evolutivo, Servicios, CTA, Footer legal.
-- Integración de documentos legales reales redactados para Colombia.
+- **Cliente:** EvolvIA (Bogotá, Colombia)
+- **Desarrollador:** Franz Seidel — Diseñador y Frontend Developer Freelance
+- **Stack:** Astro, Tailwind CSS, AstroWind
+- **Objetivo:** Construir una landing escalable, clara y lista para iterar con inteligencia artificial.
+- **Estado actual:** Etapa 1 finalizada: tipografías, estructura modular, footer y rutas legales listos.
+- **Próxima etapa:** Integración de IA para diagnóstico organizacional estratégico.
 
 ---
 
-## 🧰 Tecnologías usadas
+## 🎨 **Características clave**
 
-- Astro (para arquitectura de contenido y rendimiento)
-- Tailwind CSS (para diseño rápido y limpio)
-- Markdown (.md) para las políticas legales
-- Git + GitHub (control de versiones)
+- ⚡ **Desempeño optimizado:** arquitectura estática con Astro.
+- 📱 **100% Responsive:** mobile-first con Tailwind CSS.
+- 🔗 **SEO Ready:** rutas claras (`navigation.ts`) y metadatos bien configurados.
+- ✏️ **Componentes modulares:** Hero, Features, CTA, Footer, legales.
+- 📚 **Documentación interna:** Tipografías, colores y estilos versionados.
+- 🇨🇴 **Adaptado a Colombia:** documentos legales reales (`Términos` y `Privacidad`) redactados en español.
 
 ---
 
-## 🧩 Estructura del proyecto
+## 🗂️ **Estructura del proyecto**
 
 ```bash
 src/
-├── components/          # Componentes Astro y UI reutilizables
-├── layouts/             # Layout principal con Header y Footer
-├── pages/               # Todas las rutas del sitio (incluye legales en Markdown)
-│   ├── index.astro
-│   └── legal/
-│       ├── terminos.md
-│       └── privacidad.md
-└── assets/              # Imágenes, logos y media general
+├── components/      # Componentes Astro y UI reutilizables
+├── layouts/         # Layout principal (Header, Footer, PageLayout)
+├── pages/           # Rutas del sitio (index.astro, legales .md)
+├── assets/          # Imágenes, logos, íconos
+└── utils/           # Permalinks y helpers
 ```
 
 ---
 
-## 💻 Cómo ejecutar localmente
+## ⚙️ **Cómo levantar localmente**
 
 ```bash
-# Clona este repositorio
+# Clona este repo
 git clone https://github.com/franz8818/EvolvIA-landing-page.git
 
 # Entra a la carpeta
@@ -64,26 +55,37 @@ cd EvolvIA-landing-page
 # Instala dependencias
 npm install
 
-# Ejecuta en modo desarrollo
+# Levanta entorno dev
 npm run dev
 ```
 
 ---
 
-## 📄 Licencia
+## ✏️ **Licencia**
 
-Este proyecto es de código abierto pero con derechos reservados para uso comercial del cliente EvolvIA. Para colaboración o reutilización contacta a Franz Seidel.
-
----
-
-## ✉️ Contacto
-
-Si deseas trabajar conmigo en un proyecto web personalizado, puedes contactarme:
-
-- 💻 [franzseidel.com](https://franzseidel.com) _(si lo tienes listo o como placeholder)_
-- ✉️ franz8818@gmail.com
-- 🚀 GitHub: [@franz8818](https://github.com/franz8818)
+Uso restringido: código abierto, pero derechos reservados para uso comercial del cliente EvolvIA.  
+Para contribuciones, mejoras o consultas **contáctame primero**.
 
 ---
 
-> “No se trata de vender soluciones, sino de acompañar saltos evolutivos con coherencia y estrategia.” — *EvolvIA*
+## 👨‍💻 **Contacto**
+
+- 🌐 Portafolio: ()
+- ✉️ Email: franz8818@gmail.com
+- 🧑‍💻 GitHub: [@franz8818](https://github.com/franz8818)
+
+---
+
+## 🔤 **Tipografías**
+
+**Fuentes base:** Montserrat (cuerpo) y Poppins (headings).  
+Configuración 100% documentada en [`tailwind.config.js`](./tailwind.config.js) y `CustomStyles.astro`.  
+Para más detalle revisa `TYPOGRAPHY.md` _(opcional)_.
+
+---
+
+## 📌 **Última actualización:** [08/07/2025]
+
+---
+
+**Por Franz Seidel** ✨

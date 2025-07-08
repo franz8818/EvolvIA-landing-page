@@ -14,9 +14,9 @@ export default {
         muted: 'var(--aw-color-text-muted)',
       },
       fontFamily: {
-        sans: ['Montserrat', 'ui-sans-serif', 'system-ui'],
-        serif: ['Georgia', 'ui-serif'],
-        heading: ['Montserrat', 'ui-sans-serif', 'system-ui'],
+        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        serif: ['Georgia', ...defaultTheme.fontFamily.serif],
+        heading: ['weezerfont', ...defaultTheme.fontFamily.sans], // Aquí defines tu font-heading
       },
       animation: {
         fade: 'fadeInUp 1s both',

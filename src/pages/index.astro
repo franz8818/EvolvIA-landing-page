@@ -40,19 +40,20 @@ const metadata = {
     ]}
     image={{ src: '~/assets/images/hero-image.png', alt: 'EvolvIA Image' }}
   >
-     <Fragment slot="title">
-      Bienvenido a <span class="text-primary dark:text-white">EvolvIA</span>
+    <Fragment slot="title">
+      <span class="font-heading">
+        Bienvenido a <span class="text-primary dark:text-white">EvolvIA</span>
+      </span>
     </Fragment>
 
     <Fragment slot="subtitle">
-  Diseñamos y acompañamos procesos de transformación profunda
-  desde una arquitectura híbrida de inteligencia humana y simbiótica.
+      Diseñamos y acompañamos procesos de transformación profunda desde una arquitectura híbrida de inteligencia humana
+      y simbiótica.
 
-  <span class="block mt-4 text-2xl font-bold text-black dark:text-white">
-    No vendemos soluciones. <span class="">Activamos saltos evolutivos.</span>
-  </span>
-</Fragment>
-        
+      <span class="block mt-4 text-2xl font-bold text-black dark:text-white">
+        No vendemos soluciones. <span class="">Activamos saltos evolutivos.</span>
+      </span>
+    </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
@@ -61,24 +62,30 @@ const metadata = {
 
   <!-- Features Widget *************** -->
 
-  <Features
-    id="features"
-    tagline="¿Qué es EvolvIA?"
-    title="EvolvIA no es una herramienta ni una consultora tradicional."
-    subtitle="Es un sistema vivo que integra funciones cognitivas activas —humanas y artificiales— para ayudar a las organizaciones a evolucionar con coherencia, estrategia y sentido. Trabajamos en red, no en jerarquía Desde la tensión real de cada organización, no desde recetas."
-    items={[
-      {
-        title: 'Trabajamos en red, no en jerarquía',
-        description: 'Desde la tensión real de cada organización, no desde recetas.',
-      },
-    ]}
-  >
-    <Fragment slot="content">
-      <div class="mt-8 text-center">
-        <Button text="Inicia tu camino estratégico" href="#" variant="primary" />
-      </div>
-    </Fragment>
-  </Features>
+  <section id="features" class="bg-gray-900 text-white max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- A -->
+  <div class="flex flex-col items-center justify-center">
+  <p class="text-primary font-bold uppercase mb-2">¿Qué es?</p>
+  <h2 class="text-5xl font-heading">Evolv<span class="text-primary">IA</span></h2>
+</div>
+
+  <!-- B -->
+  <div>
+    <h3 class="text-2xl font-bold mb-4">EvolvIA no es una herramienta ni una consultora tradicional.</h3>
+    <p class="mb-4">
+      Es un sistema vivo que integra funciones cognitivas activas —<em>humanas y artificiales</em>—
+      para ayudar a las organizaciones a evolucionar con coherencia, estrategia y sentido.
+    </p>
+    <h4 class="text-xl font-bold">Trabajamos en red, no en jerarquía</h4>
+    <p>Desde la tensión real de cada organización, no desde recetas.</p>
+  </div>
+
+  <!-- C -->
+  <div class="col-span-1 md:col-span-2 mt-8 flex justify-center">
+    <Button text="Descubre EvolvIA" href="#features" variant="primary" />
+  </div>
+</section>
+
 
   <Features2
     title="¿Qué hacemos?"
@@ -193,22 +200,22 @@ const metadata = {
       {
         title: 'Donde otros trazan planes, nosotros cultivamos presencia.',
         // description:
-//           'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+        //           'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
       },
       {
         title: 'No dirigimos, acompañamos lo que quiere emerger.',
-//         description:
-          // "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+        //         description:
+        // "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
       },
       {
         title: 'Transformar no es ejecutar, es orquestar sentido.',
         // description:
-//           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+        //           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
       },
       {
         title: 'Las organizaciones no se gestionan, se escuchan.',
         // description:
-//           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+        //           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
       },
     ]}
     image={{ src: '~/assets/images/Manifiesto Evolutivo.png', alt: 'Manifiesto Evolutivo' }}
@@ -370,7 +377,6 @@ const metadata = {
         // NO NECESITO ABRIR OTRA PESTAÑA POR EL MOMENTO
         // target: '_blank',
         // icon: 'tabler:download',
-
       },
     ]}
   >
