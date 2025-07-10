@@ -34,6 +34,7 @@ const metadata = {
         // target: '_blank',
 
         icon: '',
+        class: 'rounded-none',
       },
       // BOTÓN OCULTO
       // { text: 'Descubre EvolvIA', href: '#features' },
@@ -42,7 +43,7 @@ const metadata = {
   >
     <Fragment slot="title">
       <span class="font-heading">
-        Bienvenido a <span class="text-primary dark:text-white">EvolvIA</span>
+        Bienvenido a <span class="dark:text-white">Evolv<span class="text-primary">IA</span></span>
       </span>
     </Fragment>
 
@@ -57,35 +58,37 @@ const metadata = {
   </Hero>
 
   <!-- Note Widget ******************* -->
+  <!-- <Note title="Descubre" description="lo que tu organización ya está diciendo, aunque aún no tenga forma." /> -->
 
-  <Note title="Descubre" description="lo que tu organización ya está diciendo, aunque aún no tenga forma." />
+  <section
+    id="features"
+    class="bg-gray-900 text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-8"
+  >
+    <!-- A -->
+    <div class="col-span-1 flex flex-col items-center justify-center">
+      <p class="text-primary font-bold uppercase mb-4 text-lg md:text-xl">¿Qué es?</p>
+      <h2 class="text-6xl md:text-7xl font-heading font-bold">Evolv<span>IA</span></h2>
+    </div>
 
-  <!-- Features Widget *************** -->
+    <!-- B -->
+    <div class="col-span-1 md:col-span-2 border-l border-gray-500 pl-8">
+      <h3 class="text-primary text-3xl font-bold mb-4">EvolvIA no es una herramienta ni una consultora tradicional.</h3>
+      <p class="mb-4 text-lg">
+        Es un sistema vivo que integra funciones cognitivas activas —<em>humanas y artificiales</em>— para ayudar a las
+        organizaciones a evolucionar con coherencia, estrategia y sentido.
+      </p>
+      <h4 class="text-2xl font-bold">Trabajamos en red, no en jerarquía</h4>
+      <p class="text-primary text-lg">Desde la tensión real de cada organización, no desde recetas.</p>
+    </div>
 
-  <section id="features" class="bg-gray-900 text-white max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 gap-8">
-  <!-- A -->
-  <div class="flex flex-col items-center justify-center">
-  <p class="text-primary font-bold uppercase mb-2">¿Qué es?</p>
-  <h2 class="text-5xl font-heading">Evolv<span class="text-primary">IA</span></h2>
-</div>
-
-  <!-- B -->
-  <div>
-    <h3 class="text-2xl font-bold mb-4">EvolvIA no es una herramienta ni una consultora tradicional.</h3>
-    <p class="mb-4">
-      Es un sistema vivo que integra funciones cognitivas activas —<em>humanas y artificiales</em>—
-      para ayudar a las organizaciones a evolucionar con coherencia, estrategia y sentido.
-    </p>
-    <h4 class="text-xl font-bold">Trabajamos en red, no en jerarquía</h4>
-    <p>Desde la tensión real de cada organización, no desde recetas.</p>
-  </div>
-
-  <!-- C -->
-  <div class="col-span-1 md:col-span-2 mt-8 flex justify-center">
-    <Button text="Descubre EvolvIA" href="#features" variant="primary" />
-  </div>
-</section>
-
+    <!-- C -->
+    <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
+      <Button class="rounded-none text-xl px-10 py-5 font-heading" text="Descubre EvolvIA" href="#features" variant="primary" />
+      <p class="text-primary mt-5 italic text-primary text-center text-lg">
+        Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+      </p>
+    </div>
+  </section>
 
   <Features2
     title="¿Qué hacemos?"
