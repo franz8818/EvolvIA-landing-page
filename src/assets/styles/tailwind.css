@@ -19,6 +19,19 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
+  .bg-dark-grey {
+   background-color: var(--aw-color-bg-page-dark);  
+  }
+  .bg-radial-grey {
+    background: radial-gradient(
+      circle at center,
+      var(--aw-color-bg-page-dark) 0%,
+      #0d0d0d 100%
+    );
+  }
+  .bg-emerald{
+    background-color: var(--aw-color-button-emerald);
+  }
 }
 
 /* Utilidades personalizadas */

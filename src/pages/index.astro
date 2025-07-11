@@ -34,7 +34,7 @@ const metadata = {
         // target: '_blank',
 
         icon: '',
-        class: 'rounded-none',
+        class: 'rounded-none border-2 border-[var(--aw-color-secondary)]',
       },
       // BOTÓN OCULTO
       // { text: 'Descubre EvolvIA', href: '#features' },
@@ -62,7 +62,7 @@ const metadata = {
 
   <section
     id="features"
-    class="bg-gray-900 text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-8"
+    class="bg-radial-grey text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-8"
   >
     <!-- A -->
     <div class="col-span-1 flex flex-col items-center justify-center">
@@ -83,7 +83,11 @@ const metadata = {
 
     <!-- C -->
     <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
-      <Button class="rounded-none text-xl px-10 py-5 font-heading" text="Descubre EvolvIA" href="#features" variant="primary" />
+      <Button
+        class="bg-emerald rounded-none border-2 border-[var(--aw-color-secondary)] text-xl px-10 py-5 font-heading"
+        text="Descubre EvolvIA"
+        href="#features"
+      />
       <p class="text-primary mt-5 italic text-primary text-center text-lg">
         Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
       </p>
