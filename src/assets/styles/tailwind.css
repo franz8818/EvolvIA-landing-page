@@ -22,6 +22,15 @@
   .bg-dark-grey {
    background-color: var(--aw-color-bg-page-dark);  
   }
+
+  .bg-page-features2 {
+    background-color: var(--aw-color-page-features2);
+  }
+
+  .bg-page-features2-dark {
+  background-color: var(--aw-color-page-features2-dark);
+}
+
   .bg-radial-grey {
     background: radial-gradient(
       circle at center,
@@ -30,8 +39,13 @@
     );
   }
   .bg-emerald{
-    background-color: var(--aw-color-button-emerald);
+    background-color: var(--aw-color-emerald);
   }
+
+   .text-emerald {
+    color: var(--aw-color-emerald);
+  }
+
 }
 
 /* Utilidades personalizadas */

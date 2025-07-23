@@ -50,10 +50,15 @@ const metadata = {
     <Fragment slot="subtitle">
       Diseñamos y acompañamos procesos de transformación profunda desde una arquitectura híbrida de inteligencia humana
       y simbiótica.
-
       <span class="block mt-4 text-2xl font-bold text-black dark:text-white">
         No vendemos soluciones. <span class="">Activamos saltos evolutivos.</span>
       </span>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="text-emerald mt-5 italic text-primary text-center text-lg">
+        Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+      </p>
     </Fragment>
   </Hero>
 
@@ -95,13 +100,12 @@ const metadata = {
   </section>
 
   <Features2
-    title="¿Qué hacemos?"
     subtitle=""
     items={[
       {
         title: 'Diagnóstico vivo del momento organizacional',
         description: '',
-        icon: 'flat-color-icons:template',
+        // icon: 'flat-color-icons:template',
       },
       {
         title: 'Rediseño estructural y adaptativo',
@@ -145,10 +149,19 @@ const metadata = {
       },
     ]}
   >
+  <!-- Título personalizado con color institucional -->
+  <Fragment slot="title">
+    <h2 class="text-primary text-4xl font-heading font-bold text-center">
+      ¿Qué hacemos?
+    </h2>
+  </Fragment>
+ 
+  <!-- Fondo con "emerald" -->
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-page-features2 dark:bg-transparent"></div>
     </Fragment>
 
+    <!-- Botón llamado a la acción -->
     <Fragment slot="content">
       <div class="mt-8 text-center">
         <Button text="Activemos la conversación" href="#features" variant="primary" />

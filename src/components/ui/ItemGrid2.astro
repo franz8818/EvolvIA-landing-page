@@ -9,7 +9,7 @@ const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 const {
   container: containerClass = '',
   // container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-  panel: panelClass = '',
+  panel: panelClass = 'bg-page-features2-dark',
   title: titleClass = '',
   description: descriptionClass = '',
   icon: defaultIconClass = 'text-primary',
@@ -20,7 +20,7 @@ const {
   items && items.length > 0 && (
     <div
       class={twMerge(
-        `grid gap-8 gap-x-12 sm:gap-y-8 ${
+        `grid gap-8 gap-x-12 sm:gap-y-8  text-center ${
           columns === 4
             ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3
@@ -32,10 +32,11 @@ const {
         containerClass
       )}
     >
+
       {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
         <div
           class={twMerge(
-            'relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+            'relative flex flex-col items-center justify-center intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
             panelClass,
             itemClasses?.panel
           )}
