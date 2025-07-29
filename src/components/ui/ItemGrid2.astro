@@ -9,7 +9,7 @@ const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 const {
   container: containerClass = '',
   // container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-  panel: panelClass = 'bg-page-features2-dark',
+  panel: panelClass = '',
   title: titleClass = '',
   description: descriptionClass = '',
   icon: defaultIconClass = 'text-primary',
@@ -20,7 +20,7 @@ const {
   items && items.length > 0 && (
     <div
       class={twMerge(
-        `grid gap-8 gap-x-12 sm:gap-y-8  text-center ${
+        `grid gap-8 gap-x-12 sm:gap-y-8 text-center ${
           columns === 4
             ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3

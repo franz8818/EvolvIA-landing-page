@@ -1,0 +1,54 @@
+---
+// src/components/ui/SpiralGraphic.astro
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 400 400"
+  class="w-full h-auto"
+>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#21ecec" />
+      <stop offset="100%" stop-color="transparent" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(200,200)" class="motion-safe:animate-spin-slow">
+    {Array.from({ length: 60 }).map((_, i) => {
+      const r = 50 + i * 2;
+      const angle = i * 6;
+      const opacity = 1 - i / 80;
+      return (
+        <circle
+          r={r}
+          fill="none"
+          stroke="url(#grad)"
+          stroke-opacity={opacity}
+          stroke-width="1"
+          transform={`rotate(${angle})`}
+        />
+      );
+    })}
+  </g>
+  <text
+    x="200"
+    y="210"
+    text-anchor="middle"
+    font-family="Montserrat, sans-serif"
+    font-size="36"
+    fill="#21ecec"
+    font-weight="bold"
+  >
+    Manifiesto
+    <tspan x="200" dy="1.2em">Evolutivo</tspan>
+  </text>
+</svg>
+
+<style is:global>
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 60s linear infinite;
+  }
+</style>
