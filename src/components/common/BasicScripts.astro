@@ -1,8 +1,9 @@
 ---
 import { UI } from 'astrowind:config';
 ---
-
 <script is:inline define:vars={{ defaultTheme: 'light:only' }}>
+  /* Cambio para anular el dark mode
+  obliga defaultTheme siempre sea "light:only", y el bloque initTheme() aplicará modo light siempre */
   if (window.basic_script) {
     return;
   }
