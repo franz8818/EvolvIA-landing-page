@@ -2,7 +2,7 @@
 import { UI } from 'astrowind:config';
 ---
 
-<!-- <script is:inline define:vars={{ defaultTheme: UI.theme }}>
+<script is:inline define:vars={{ defaultTheme: 'light:only' }}>
   if (window.basic_script) {
     return;
   }
@@ -159,7 +159,7 @@ import { UI } from 'astrowind:config';
     onLoad();
     onPageShow();
   });
-</script> -->
+</script>
 
 <script is:inline>
   /* Inspired by: https://github.com/heidkaemper/tailwindcss-intersect */
