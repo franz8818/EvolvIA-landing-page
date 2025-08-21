@@ -1,4 +1,4 @@
-# 🚀 EvolvIA — Landing Page Estratégica
+# 🚀 EvolvIA — Landing Page Estratégica - ## 📌 **Última actualización:** [21/08/2025]
 
 **EvolvIA** es una landing page minimalista, rápida y modular, desarrollada con **Astro 5**, **Tailwind CSS** y un diseño estratégico basado en la identidad y narrativa de la marca.
 
@@ -76,15 +76,67 @@ Para contribuciones, mejoras o consultas **contáctame primero**.
 
 ---
 
+## 🌈 **Sistema de color**
+
+Variables CSS (`CustomStyles.astro`)
+
+```CSS
+:root {
+  --aw-color-primary: #00cfe5;               /* Color principal: botones, enlaces destacados */
+  --aw-color-secondary: #f628a7;            /* Hover, enlaces secundarios */
+  --aw-color-accent: rgb(109, 40, 217);     /* Detalles visuales: bordes, líneas */
+  --aw-color-button-emerald: #144c43;       /* Fondo de botón tipo esmeralda */
+
+  --aw-color-text-heading: rgb(0 0 0);
+  --aw-color-text-default: rgb(16 16 16);
+  --aw-color-text-muted: rgb(16 16 16 / 66%);
+
+  --aw-color-bg-page: rgb(255 255 255);          /* Fondo blanco */
+  --aw-color-bg-page-dark: #111827;            /* Fondo oscuro general */
+  --aw-color-page-tree: #03292c;               /* Fondo para sección Features2 */
+}
+```
+
+## 🛠️ Clases Personalizadas (`tailwind.css`)
+
+```css
+@layer utilities {
+  .bg-page {
+    background-color: var(--aw-color-bg-page);
+  }
+  .bg-dark {
+    background-color: var(--aw-color-bg-page-dark);
+  }
+  .bg-radial-grey {
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+  }
+  .bg-emerald {
+    background-color: var(--aw-color-button-emerald);
+  }
+}
+
+```
+## 🎨 Paleta Visual (Resumen)
+
+| Nombre             | Token                        | Color              | Uso principal                           |
+|--------------------|------------------------------|---------------------|------------------------------------------|
+| Primario           | `--aw-color-primary`         | `#00cfe5`           | Botones, enlaces destacados              |
+| Secundario         | `--aw-color-secondary`       | `#f628a7`           | Hover, interacción secundaria            |
+| Acento             | `--aw-color-accent`          | `rgb(109, 40, 217)` | Bordes, decoración simbiótica            |
+| Botón esmeralda    | `--aw-color-button-emerald`  | `#144c43`           | Botón estilo profundo y elegante         |
+| Texto principal    | `--aw-color-text-default`    | `rgb(16, 16, 16)`   | Cuerpo del texto                         |
+| Texto atenuado     | `--aw-color-text-muted`      | `rgb(16, 16, 16 / 66%)` | Texto secundario                       |
+| Fondo claro        | `--aw-color-bg-page`         | `#ffffff`           | Fondo base general                       |
+| Fondo oscuro       | `--aw-color-bg-page-dark`    | `#111827`           | Secciones profundas o modo oscuro        |
+| Fondo Features2    | `--aw-color-page-tree`       | `#03292c`           | Sección "¿Qué hacemos?"                  |
+
+---
+
 ## 🔤 **Tipografías**
 
 **Fuentes base:** Montserrat (cuerpo) y Poppins (headings).  
 Configuración 100% documentada en [`tailwind.config.js`](./tailwind.config.js) y `CustomStyles.astro`.  
 Para más detalle revisa `TYPOGRAPHY.md` _(opcional)_.
-
----
-
-## 📌 **Última actualización:** [08/07/2025]
 
 ---
 
