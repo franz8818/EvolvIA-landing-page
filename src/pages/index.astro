@@ -7,9 +7,11 @@ import Button from '~/components/ui/Button.astro';
 
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import HowItWorks from '~/components/widgets/HowItWorks.astro';
-import SCF from '~/components/widgets/scf.astro'; 
 
+import HowItWorks from '~/components/widgets/HowItWorks.astro';
+import SCF from '~/components/widgets/SCF.astro'; 
+
+import ContactForm from '~/components/widgets/ContactForm.astro';
 import SpiralGraphic from '~/components/ui/SpiralGraphic.astro';
 
 const metadata = {
@@ -247,5 +249,8 @@ const metadata = {
 
 <!-- SCF: Funciones Cognitivas Simbióticas -->
 <SCF />
+
+<!-- Formulario de Contacto -->
+<ContactForm id="contacto" />
 
 </Layout>

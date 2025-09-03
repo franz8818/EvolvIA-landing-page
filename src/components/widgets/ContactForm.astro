@@ -1,0 +1,266 @@
+---
+/**
+ * ContactFormDummy — EvolvIA (match contacto.png)
+ * Dummy interactivo: editable, no envía; muestra toast y resetea.
+ */
+const { id = 'contacto' } = Astro.props;
+---
+
+<section id={id} class="relative bg-white text-neutral-900">
+  <!-- línea superior -->
+  <div class="h-[3px] w-full bg-[var(--aw-color-primary,#00cfe5)]"></div>
+
+  <div class="max-w-5xl mx-auto px-6 py-10 sm:py-14">
+    <!-- Título -->
+    <h2
+      class="text-center font-extrabold leading-tight tracking-tight
+               text-[clamp(1.9rem,3.5vw,2.6rem)]
+               text-[color:var(--aw-color-primary,#00cfe5)]"
+    >
+      Formulario de Contacto
+    </h2>
+
+    <!-- Intro -->
+    <div class="mt-6 text-[15px] sm:text-base text-center space-y-2">
+      <p><strong>Este no es un formulario transaccional.</strong></p>
+      <p>Es una puerta de entrada a una conversación que puede transformar tu organización.</p>
+      <p class="text-[14px] sm:text-[15px] text-neutral-700">
+        (Respóndelo si sientes que algo está madurando para moverse)
+      </p>
+    </div>
+
+    <!-- FORM dummy -->
+    <form id="contact-dummy" action="#" method="post" class="mt-10 space-y-8">
+      <!-- Fila de inputs como el arte -->
+      <label class="block">
+        <span class="form-label">Nombre completo:</span>
+        <input type="text" placeholder="" class="form-input" />
+      </label>
+
+      <label class="block">
+        <span class="form-label">Correo electrónico:</span>
+        <input type="email" placeholder="" class="form-input" />
+      </label>
+
+      <label class="block">
+        <span class="form-label">Celular:</span>
+        <input type="tel" inputmode="tel" placeholder="" class="form-input" />
+      </label>
+
+      <label class="block">
+        <span class="form-label">Organización (si aplica):</span>
+        <input type="text" placeholder="" class="form-input" />
+      </label>
+
+      <label class="block">
+        <span class="form-label">Rol o lugar desde el que te relacionas con ella:</span>
+        <input type="text" placeholder="" class="form-input" />
+      </label>
+
+      <!-- Textareas (3) -->
+      <label class="block">
+        <span class="form-label">¿Qué te hizo llegar hasta aquí hoy?</span>
+        <textarea rows="2" class="form-textarea" placeholder=""></textarea>
+      </label>
+
+      <label class="block">
+        <span class="form-label">¿Qué pregunta o tensión sientes que está viva en tu organización?</span>
+        <textarea rows="2" class="form-textarea" placeholder=""></textarea>
+      </label>
+
+      <label class="block">
+        <span class="form-label">¿Hay algo que ya sabes que necesita cambiar, aunque aún no tenga forma?</span>
+        <textarea rows="2" class="form-textarea" placeholder=""></textarea>
+      </label>
+
+      <!-- Doble columna con divisor -->
+      <div class="grid md:grid-cols-2 gap-10">
+        <fieldset>
+          <legend class="form-legend">¿Cuál de estas rutas resuena más contigo ahora mismo?</legend>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3">
+              <input id="ruta1" type="checkbox" class="form-check" />
+              <label for="ruta1" class="form-check-label">Diagnóstico inicial</label>
+            </li>
+            <li class="flex items-start gap-3">
+              <input id="ruta2" type="checkbox" class="form-check" />
+              <label for="ruta2" class="form-check-label">Sesión exploratoria</label>
+            </li>
+            <li class="flex items-start gap-3">
+              <input id="ruta3" type="checkbox" class="form-check" />
+              <label for="ruta3" class="form-check-label">Activar acompañamiento simbiótico</label>
+            </li>
+            <li class="flex items-start gap-3">
+              <input id="ruta4" type="checkbox" class="form-check" />
+              <label for="ruta4" class="form-check-label">Solo compartir una inquietud</label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="relative">
+          <!-- divisor vertical turquesa -->
+          <span
+            aria-hidden="true"
+            class="hidden md:block absolute -left-5 top-1 bottom-1 w-[2px]
+                       bg-[var(--aw-color-primary,#00cfe5)]"
+          ></span>
+          <legend class="form-legend">¿Cómo prefieres que te contactemos?</legend>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3">
+              <input id="pref1" type="checkbox" class="form-check" />
+              <label for="pref1" class="form-check-label">Correo</label>
+            </li>
+            <li class="flex items-start gap-3">
+              <input id="pref2" type="checkbox" class="form-check" />
+              <label for="pref2" class="form-check-label">WhatsApp</label>
+            </li>
+            <li class="flex items-start gap-3">
+              <input id="pref3" type="checkbox" class="form-check" />
+              <label for="pref3" class="form-check-label">Reunión por videollamada</label>
+            </li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <!-- Avisos iguales al arte -->
+      <div class="pt-2 text-center text-sm md:text-[15px] leading-relaxed text-pretty">
+        <p>Al enviar este formulario, no recibirás una respuesta automática.</p>
+        <p>Te responderemos con <em>una <strong>pregunta que activa</strong></em>.</p>
+        <p class="mt-2">Porque EvolvIA no responde rápido.</p>
+        <p class="font-extrabold text-[22px] md:text-[28px] leading-tight mt-1">Responde con sentido.</p>
+      </div>
+
+      <p class="text-center mt-3 font-bold text-[18px] sm:text-[20px] leading-snug">
+        ¿Qué quieres evolucionar en ti, en tu equipo, en tu empresa?
+      </p>
+
+      <!-- Botón “ticket” -->
+      <div class="pt-3">
+        <div class="relative mx-auto max-w-max">
+          <button type="submit" class="btn-alive">
+            <span class="relative z-10">¡Activa una conversación viva!</span>
+          </button>
+
+          <!-- faldón magenta -->
+          <span
+            aria-hidden="true"
+            class="pointer-events-none absolute -bottom-2 left-5 right-5 h-2 rounded-md
+                       bg-[var(--aw-color-secondary,#f628a7)] opacity-95"
+          ></span>
+          <!-- pestañas magenta laterales -->
+          <span
+            aria-hidden="true"
+            class="pointer-events-none absolute -bottom-3 left-1 h-6 w-5 rounded-lg
+                       border-2 border-[var(--aw-color-secondary,#f628a7)]"
+          ></span>
+          <span
+            aria-hidden="true"
+            class="pointer-events-none absolute -bottom-3 right-1 h-6 w-5 rounded-lg
+                       border-2 border-[var(--aw-color-secondary,#f628a7)]"
+          ></span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- línea inferior -->
+  <div class="h-[3px] w-full bg-[var(--aw-color-primary,#00cfe5)]"></div>
+
+  <!-- Toast dummy -->
+  <div
+    id="contact-toast"
+    class="pointer-events-none fixed left-1/2 -translate-x-1/2 bottom-6
+              hidden rounded-xl px-4 py-3 shadow-lg
+              bg-[var(--aw-color-primary,#00cfe5)] text-[#0b1320] font-semibold"
+  >
+    Formulario enviado (demo). No se ha guardado nada.
+  </div>
+</section>
+
+<style is:global>
+  /* Campos como en el PNG: fondo gris oscuro + borde turquesa */
+  .form-label {
+    @apply block text-[15px] sm:text-base mb-2 font-medium;
+  }
+
+  .form-input,
+  .form-textarea {
+    @apply w-full rounded-md bg-neutral-800/90 text-white placeholder-white/60
+      border-2 border-[color:var(--aw-color-primary,#00cfe5)]
+      focus:outline-none focus:ring-2
+      focus:ring-[color:var(--aw-color-primary,#00cfe5)]
+      focus:border-[color:var(--aw-color-primary,#00cfe5)]
+      px-4 py-3;
+  }
+  .form-textarea {
+    @apply resize-none min-h-[80px];
+  }
+
+  .form-legend {
+    @apply text-[15px] sm:text-base font-semibold;
+  }
+
+  .form-check {
+  @apply mt-1 h-4 w-4 shrink-0 rounded-sm border-2
+    border-[color:var(--aw-color-primary,#00cfe5)]
+    bg-neutral-800 checked:bg-[color:var(--aw-color-primary,#00cfe5)]
+    focus:outline-none focus:ring-2
+    focus:ring-[color:var(--aw-color-primary,#00cfe5)] focus:ring-offset-2 focus:ring-offset-white
+    focus-visible:outline-2 focus-visible:outline-[color:var(--aw-color-primary,#00cfe5)] focus-visible:outline-offset-2;
+}
+
+  .form-check-label {
+    @apply text-[15px] leading-5;
+  }
+
+  /* Botón ticket */
+  .btn-alive {
+    --primary: var(--aw-color-primary, #00cfe5);
+    --ink: #0b1320;
+    @apply relative inline-flex items-center justify-center select-none
+      rounded-2xl px-7 sm:px-10 py-3.5 sm:py-4
+      font-extrabold tracking-tight text-[17px] sm:text-[18px]
+      text-[color:var(--ink)] transition;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--primary), white 15%), var(--primary));
+    box-shadow:
+      0 8px 24px color-mix(in oklab, var(--primary), transparent 70%),
+      inset 0 0 0 2px color-mix(in oklab, var(--primary), #000 15%);
+  }
+  .btn-alive::before,
+  .btn-alive::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--primary);
+    filter: drop-shadow(0 0 8px color-mix(in oklab, var(--primary), transparent 30%));
+  }
+  .btn-alive::before {
+    top: -7px;
+  }
+  .btn-alive::after {
+    bottom: -7px;
+  }
+  .btn-alive:hover {
+    transform: translateY(-1px);
+  }
+  .btn-alive:active {
+    transform: translateY(0);
+    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.08);
+  }
+</style>
+
+<!-- Script: bloquea envío, resetea y muestra toast -->
+<script>
+  const form = document.getElementById('contact-dummy');
+  const toast = document.getElementById('contact-toast');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (form instanceof HTMLFormElement) form.reset();
+    toast?.classList.remove('hidden');
+    setTimeout(() => toast?.classList.add('hidden'), 3000);
+  });
+</script>
