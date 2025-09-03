@@ -65,8 +65,7 @@ const metadata = {
   <section
     id="features"
     class="bg-radial-grey text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-8"
-
-    >
+  >
     <!-- A -->
     <div class="col-span-1 flex flex-col items-center justify-center">
       <p class="text-primary font-bold uppercase mb-4 text-lg md:text-xl">¿Qué es?</p>
@@ -212,32 +211,30 @@ const metadata = {
       // añade otros slots/clases según tu implementación…
     }}
   >
-    <!-- fondo2 -->
+    <!-- Fondo -->
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-radial-grey"></div>
     </Fragment>
 
+    <!-- Spiral -->
+    <Fragment slot="image">
+      <div class="max-w-md mx-auto">
+        <SpiralGraphic />
+      </div>
+    </Fragment>
 
-  <!-- Spiral -->keokdpo
-  <Fragment slot="image">
-    <div class="max-w-md mx-auto">
-      <SpiralGraphic />
-    </div>
-  </Fragment>
-
-    </Content>
-
-  <!-- <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: '¡Activa una conversación viva!',
-        href: 'https://github.com/onwidget/astrowind',
-
-        // NO NECESITO ABRIR OTRA PESTAÑA POR EL MOMENTO
-        // target: '_blank',
-        // icon: 'tabler:download',
-      },
-    ]}
-  /> -->
+    <!-- callToAction -->
+    <Fragment slot="cta">
+      <CallToAction
+        actions={[
+          {
+            variant: 'primary',
+            text: '¡Activa una conversación viva!',
+            href: '#contacto',
+            class: 'px-1 py-1 text-sm rounded-full', // 👈 menos padding
+          },
+        ]}
+      />
+    </Fragment>
+  </Content>
 </Layout>
