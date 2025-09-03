@@ -7,6 +7,8 @@ import Button from '~/components/ui/Button.astro';
 
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import HowItWorks from '~/components/widgets/HowItWorks.astro';
+import SCF from '~/components/widgets/scf.astro'; 
 
 import SpiralGraphic from '~/components/ui/SpiralGraphic.astro';
 
@@ -180,26 +182,26 @@ const metadata = {
     isReversed={true}
     items={[
       {
-        title: '- No creemos en fórmulas, creamos condiciones.',
+        title: '- No creemos en fórmulas, <b>creamos condiciones</b>.',
         // description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
       },
       {
-        title: '- Donde otros trazan planes, nosotros cultivamos presencia.',
+        title: '- Donde otros trazan planes, <b>nosotros cultivamos presencia.</b>',
         // description:
         //           'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
       },
       {
-        title: '- No dirigimos, acompañamos lo que quiere emerger.',
+        title: '- No dirigimos, <b>acompañamos lo que quiere emerger.</b>',
         //         description:
         // "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
       },
       {
-        title: '- Transformar no es ejecutar, es orquestar sentido.',
+        title: '- Transformar no es ejecutar, <b>es orquestar sentido.</b>',
         // description:
         //           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
       },
       {
-        title: '- Las organizaciones no se gestionan, se escuchan.',
+        title: '- Las organizaciones no se gestionan, <b>se escuchan.</b>',
         // description:
         //           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
       },
@@ -237,4 +239,13 @@ const metadata = {
       />
     </Fragment>
   </Content>
+
+  <!-- ¿Cómo opera? -->
+  <div class="bg-white">
+  <HowItWorks />
+</div>
+
+<!-- SCF: Funciones Cognitivas Simbióticas -->
+<SCF />
+
 </Layout>
