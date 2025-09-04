@@ -33,7 +33,7 @@ const {
         >
           {
             image && (
-             <div class="relative max-w-5xl md:mx-0 mx-0 md:mb-6 mb-0">
+              <div class="relative max-w-5xl md:mx-0 mx-0 md:mb-6 mb-0">
                 {typeof image === 'string' ? (
                   <Fragment set:html={image} />
                 ) : (
@@ -63,7 +63,9 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="px-4 py-2 md:px-8 md:py-4
+         text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200
+         intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={title}
             />
           )
@@ -83,7 +85,7 @@ const {
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex w-full sm:w-auto">
-                     <Button {...(action || {})} class={`w-full sm:mb-0 ${action?.class || ''}`} />
+                      <Button {...(action || {})} class={`w-full sm:mb-0 ${action?.class || ''}`} />
                     </div>
                   ))
                 ) : (
