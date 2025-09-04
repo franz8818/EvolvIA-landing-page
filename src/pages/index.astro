@@ -3,16 +3,17 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Button from '~/components/ui/Button.astro';
-
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-
 import HowItWorks from '~/components/widgets/HowItWorks.astro';
-import SCF from '~/components/widgets/SCF.astro'; 
-
+import SCF from '~/components/widgets/SCF.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+
+import Button from '~/components/ui/Button.astro';
 import SpiralGraphic from '~/components/ui/SpiralGraphic.astro';
+
+import logo from '~/assets/recursos/logo/EvolvIA-2.png';
+import heroBg from '~/assets/recursos/fondos/Landing_Fondo01.png';
 
 const metadata = {
   title: 'EvolvIA — Ventures',
@@ -23,227 +24,249 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Inicia tu camino estratégico',
-        href: '',
+<Hero
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Inicia tu camino estratégico',
+      href: '',
 
-        // NO NECESITO ABRIR OTRA PESTAÑA POR EL MOMENTO
-        // target: '_blank',
+      // NO NECESITO ABRIR OTRA PESTAÑA POR EL MOMENTO
+      // target: '_blank',
 
-        icon: '',
-        class: 'rounded-none border-2 border-[var(--aw-color-secondary)]',
-      },
-      // BOTÓN OCULTO
-      // { text: 'Descubre EvolvIA', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'EvolvIA Image' }}
-  >
-    <Fragment slot="title">
-      <span class="font-heading">
-        Bienvenido a <span class="dark:text-white">Evolv<span class="text-primary">IA</span></span>
-      </span>
-    </Fragment>
+      icon: '',
+      class: 'rounded-none border-2 border-[var(--aw-color-secondary)]',
+    },
+    // BOTÓN OCULTO
+    // { text: 'Descubre EvolvIA', href: '#features' },
+  ]}
+>
+  <Fragment slot="image">
+  <!-- Contenedor del logo con fondo adaptado -->
+  <div class="relative mx-auto w-[220px] sm:w-[260px] md:w-[300px]">
+    <!-- Capa de fondo pegada al tamaño del contenedor (igual al del logo) -->
+    <img
+      src={heroBg.src ?? heroBg}
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover opacity-80 pointer-events-none select-none"
+    />
 
-    <Fragment slot="subtitle">
-      Diseñamos y acompañamos procesos de transformación profunda desde una arquitectura híbrida de inteligencia humana
-      y simbiótica.
-      <span class="block mt-4 text-2xl font-bold text-black dark:text-white">
-        No vendemos soluciones. <span class="">Activamos saltos evolutivos.</span>
-      </span>
-    </Fragment>
+    <!-- Logo por encima -->
+    <img
+      src={logo.src ?? logo}
+      alt="EvolvIA Logo"
+      class="relative z-10 w-full h-auto"
+    />
+  </div>
+</Fragment>
 
-    <Fragment slot="content">
-      <p class="text-emerald mt-5 italic text-primary text-center text-lg">
-        Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
-      </p>
-    </Fragment>
-  </Hero>
 
-  <!-- Note Widget ******************* -->
-  <!-- <Note title="Descubre" description="lo que tu organización ya está diciendo, aunque aún no tenga forma." /> -->
+  <Fragment slot="title">
+    <span class="font-heading">
+      Bienvenido a <span class="dark:text-white">Evolv<span class="text-primary">IA</span></span>
+    </span>
+  </Fragment>
 
-  <!-- fondo1 -> radial-grey /> -->
-  <section
-    id="features"
-    class="bg-radial-grey text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-8"
-  >
-    <!-- A -->
-    <div class="col-span-1 flex flex-col items-center justify-center">
-      <p class="text-primary font-bold uppercase mb-4 text-lg md:text-xl">¿Qué es?</p>
-      <h2 class="text-6xl md:text-7xl font-heading font-bold">Evolv<span>IA</span></h2>
+  <Fragment slot="subtitle">
+    Diseñamos y acompañamos procesos de transformación profunda desde una arquitectura híbrida de inteligencia humana y
+    simbiótica.
+    <span class="block mt-4 text-2xl font-bold text-black dark:text-white">
+      No vendemos soluciones. <span class="">Activamos saltos evolutivos.</span>
+    </span>
+  </Fragment>
+
+  <Fragment slot="content">
+    <p class="text-emerald mt-5 italic text-primary text-center text-lg">
+      Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+    </p>
+  </Fragment>
+</Layout>
+
+<!-- Note Widget ******************* -->
+<!-- <Note title="Descubre" description="lo que tu organización ya está diciendo, aunque aún no tenga forma." /> -->
+
+<!-- fondo1 -> radial-grey /> -->
+<section
+  id="features"
+  class="bg-radial-grey text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-8"
+>
+  <!-- A -->
+  <div class="col-span-1 flex flex-col items-center justify-center">
+    <p class="text-primary font-bold uppercase mb-4 text-lg md:text-xl">¿Qué es?</p>
+    <h2 class="text-6xl md:text-7xl font-heading font-bold">Evolv<span>IA</span></h2>
+  </div>
+
+  <!-- B -->
+  <div class="col-span-1 md:col-span-2 border-l border-gray-500 pl-8">
+    <h3 class="text-primary text-3xl font-bold mb-4">EvolvIA no es una herramienta ni una consultora tradicional.</h3>
+    <p class="mb-4 text-lg">
+      Es un sistema vivo que integra funciones cognitivas activas —<em>humanas y artificiales</em>— para ayudar a las
+      organizaciones a evolucionar con coherencia, estrategia y sentido.
+    </p>
+    <h4 class="text-2xl font-bold">Trabajamos en red, no en jerarquía</h4>
+    <p class="text-primary text-lg">Desde la tensión real de cada organización, no desde recetas.</p>
+  </div>
+
+  <!-- C -->
+  <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
+    <Button
+      class="bg-emerald rounded-none border-2 border-[var(--aw-color-secondary)] text-xl px-10 py-5 font-heading"
+      text="Descubre EvolvIA"
+      href="#features"
+    />
+    <p class="text-primary mt-5 italic text-primary text-center text-lg">
+      Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+    </p>
+  </div>
+</section>
+
+<Features2
+  subtitle=""
+  items={[
+    {
+      title: 'Diagnóstico vivo del momento organizacional',
+      description: '',
+      // icon: 'flat-color-icons:template',
+    },
+    {
+      title: 'Rediseño estructural y adaptativo',
+      description: '',
+      // icon: 'flat-color-icons:gallery',
+    },
+    {
+      title: 'Acompañamiento estratégico en procesos de cambio',
+      description: '',
+      // icon: 'flat-color-icons:approval',
+    },
+    {
+      title: 'Activación de equipos con propósito',
+      description: '',
+      // icon: 'flat-color-icons:document',
+    },
+    {
+      title: 'Diseño de narrativa estratégica y posicionamiento',
+      description: '',
+      // icon: 'flat-color-icons:advertising',
+    },
+    {
+      title: 'Lectura evolutiva del entorno y mercado',
+      description: '',
+      // icon: 'flat-color-icons:currency-exchange',
+    },
+    {
+      title: 'Escalamiento con sentido y coherencia',
+      description: '',
+      // icon: 'flat-color-icons:voice-presentation',
+    },
+    {
+      title: 'Cuidado profundo de la cultura y el clima',
+      description: '',
+      // icon: 'flat-color-icons:business-contact',
+    },
+    {
+      title: 'Alineación entre propósito, personas y procesos',
+      description: '',
+      // icon: 'flat-color-icons:database',
+    },
+  ]}
+>
+  <!-- Título personalizado con color institucional -->
+  <Fragment slot="title">
+    <h2 class="text-primary text-4xl font-heading font-bold text-center">¿Qué hacemos?</h2>
+  </Fragment>
+
+  <!-- Fondo con "emerald" -->
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-page-features2 dark:bg-transparent"></div>
+  </Fragment>
+
+  <!-- Botón llamado a la acción -->
+  <Fragment slot="content">
+    <div class="mt-8 text-center">
+      <Button text="Activemos la conversación" href="#features" variant="primary" />
     </div>
+  </Fragment>
 
-    <!-- B -->
-    <div class="col-span-1 md:col-span-2 border-l border-gray-500 pl-8">
-      <h3 class="text-primary text-3xl font-bold mb-4">EvolvIA no es una herramienta ni una consultora tradicional.</h3>
-      <p class="mb-4 text-lg">
-        Es un sistema vivo que integra funciones cognitivas activas —<em>humanas y artificiales</em>— para ayudar a las
-        organizaciones a evolucionar con coherencia, estrategia y sentido.
-      </p>
-      <h4 class="text-2xl font-bold">Trabajamos en red, no en jerarquía</h4>
-      <p class="text-primary text-lg">Desde la tensión real de cada organización, no desde recetas.</p>
-    </div>
+  <Fragment slot="content">
+    <p class="text-emerald mt-5 italic text-primary text-center text-lg">
+      Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+    </p>
+  </Fragment>
+</Features2>
 
-    <!-- C -->
-    <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
-      <Button
-        class="bg-emerald rounded-none border-2 border-[var(--aw-color-secondary)] text-xl px-10 py-5 font-heading"
-        text="Descubre EvolvIA"
-        href="#features"
-      />
-      <p class="text-primary mt-5 italic text-primary text-center text-lg">
-        Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
-      </p>
-    </div>
-  </section>
-
-  <Features2
-    subtitle=""
-    items={[
-      {
-        title: 'Diagnóstico vivo del momento organizacional',
-        description: '',
-        // icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Rediseño estructural y adaptativo',
-        description: '',
-        // icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Acompañamiento estratégico en procesos de cambio',
-        description: '',
-        // icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Activación de equipos con propósito',
-        description: '',
-        // icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Diseño de narrativa estratégica y posicionamiento',
-        description: '',
-        // icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Lectura evolutiva del entorno y mercado',
-        description: '',
-        // icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Escalamiento con sentido y coherencia',
-        description: '',
-        // icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Cuidado profundo de la cultura y el clima',
-        description: '',
-        // icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Alineación entre propósito, personas y procesos',
-        description: '',
-        // icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <!-- Título personalizado con color institucional -->
-    <Fragment slot="title">
-      <h2 class="text-primary text-4xl font-heading font-bold text-center">¿Qué hacemos?</h2>
-    </Fragment>
-
-    <!-- Fondo con "emerald" -->
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-page-features2 dark:bg-transparent"></div>
-    </Fragment>
-
-    <!-- Botón llamado a la acción -->
-    <Fragment slot="content">
-      <div class="mt-8 text-center">
-        <Button text="Activemos la conversación" href="#features" variant="primary" />
-      </div>
-    </Fragment>
-
-    <Fragment slot="content">
-      <p class="text-emerald mt-5 italic text-primary text-center text-lg">
-        Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
-      </p>
-    </Fragment>
-  </Features2>
-
-  <!-- 
+<!-- 
   Prop: isReversed
   Función: invierte el orden de imagen y contenido en pantallas ≥ md
 -->
 
-  <Content
-    isAfterContent
-    isReversed={true}
-    items={[
-      {
-        title: '- No creemos en fórmulas, <b>creamos condiciones</b>.',
-        // description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: '- Donde otros trazan planes, <b>nosotros cultivamos presencia.</b>',
-        // description:
-        //           'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: '- No dirigimos, <b>acompañamos lo que quiere emerger.</b>',
-        //         description:
-        // "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: '- Transformar no es ejecutar, <b>es orquestar sentido.</b>',
-        // description:
-        //           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-      {
-        title: '- Las organizaciones no se gestionan, <b>se escuchan.</b>',
-        // description:
-        //           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    classes={{
-      container: 'md:flex md:gap-16 relative text-white font-sans', // contenedor general
-      title: 'text-white', // títulos
-      description: 'text-white', // descripciones
-      // añade otros slots/clases según tu implementación…
-    }}
-  >
-    <!-- Fondo -->
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-radial-grey"></div>
-    </Fragment>
+<Content
+  isAfterContent
+  isReversed={true}
+  items={[
+    {
+      title: '- No creemos en fórmulas, <b>creamos condiciones</b>.',
+      // description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+    },
+    {
+      title: '- Donde otros trazan planes, <b>nosotros cultivamos presencia.</b>',
+      // description:
+      //           'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+    },
+    {
+      title: '- No dirigimos, <b>acompañamos lo que quiere emerger.</b>',
+      //         description:
+      // "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+    },
+    {
+      title: '- Transformar no es ejecutar, <b>es orquestar sentido.</b>',
+      // description:
+      //           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+    },
+    {
+      title: '- Las organizaciones no se gestionan, <b>se escuchan.</b>',
+      // description:
+      //           'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+    },
+  ]}
+  classes={{
+    container: 'md:flex md:gap-16 relative text-white font-sans', // contenedor general
+    title: 'text-white', // títulos
+    description: 'text-white', // descripciones
+    // añade otros slots/clases según tu implementación…
+  }}
+>
+  <!-- Fondo -->
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-radial-grey"></div>
+  </Fragment>
 
-    <!-- Spiral -->
-    <Fragment slot="image">
-      <div class="max-w-md mx-auto">
-        <SpiralGraphic />
-      </div>
-    </Fragment>
+  <!-- Spiral -->
+  <Fragment slot="image">
+    <div class="max-w-md mx-auto">
+      <SpiralGraphic />
+    </div>
+  </Fragment>
 
-    <!-- callToAction -->
-    <Fragment slot="cta">
-      <CallToAction
-        actions={[
-          {
-            variant: 'primary',
-            text: '¡Activa una conversación viva!',
-            href: '#contacto',
-            class: 'px-1 py-1 text-sm rounded-full', // 👈 menos padding
-          },
-        ]}
-      />
-    </Fragment>
-  </Content>
 
-  <!-- ¿Cómo opera? -->
-  <div class="bg-white">
+  <!-- callToAction -->
+  <Fragment slot="cta">
+    <CallToAction
+      actions={[
+        {
+          variant: 'primary',
+          text: '¡Activa una conversación viva!',
+          href: '#contacto',
+          class: 'px-1 py-1 text-sm rounded-full', // 👈 menos padding
+        },
+      ]}
+    />
+  </Fragment>
+</Content>
+
+
+<!-- ¿Cómo opera? -->
+<div class="bg-white">
   <HowItWorks />
 </div>
 
@@ -252,5 +275,3 @@ const metadata = {
 
 <!-- Formulario de Contacto -->
 <ContactForm id="contacto" />
-
-</Layout>
