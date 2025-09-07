@@ -68,4 +68,53 @@ import '@fontsource-variable/inter';
     font-weight: normal; /* Sólo soporta 400 */
     font-style: normal;
   }
+
+  /* ===========================
+   Botón tipo "ticket" (antes btn-alive)
+   100% CSS (sin spans auxiliares)
+=========================== */
+.btn-ticket{
+  --primary: var(--aw-color-primary, #00cfe5);
+  --ink: var(--aw-color-text-default, #101010);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  border-radius: 1rem; /* ~rounded-2xl */
+  background: linear-gradient(180deg,
+    color-mix(in oklab, var(--primary), white 15%),
+    var(--primary));
+  box-shadow:
+    0 8px 24px color-mix(in oklab, var(--primary), transparent 70%),
+    inset 0 0 0 2px color-mix(in oklab, var(--primary), #000 15%);
+  transition: transform .15s ease;
+}
+.btn-ticket::before,
+.btn-ticket::after{
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--primary);
+  filter: drop-shadow(0 0 8px color-mix(in oklab, var(--primary), transparent 30%));
+}
+.btn-ticket::before{ top: -7px; }
+.btn-ticket::after { bottom: -7px; }
+
+.btn-ticket:hover{ transform: translateY(-1px); }
+.btn-ticket:active{
+  transform: translateY(0);
+  box-shadow: inset 0 0 0 3px rgba(0,0,0,.08);
+}
+
+/* (Opcional) ajuste para dark mode si lo activas por clase .dark */
+.dark .btn-ticket{
+  --ink: var(--aw-color-text-default, #e5ecf6);
+  box-shadow:
+    0 8px 24px color-mix(in oklab, var(--primary), transparent 70%),
+    inset 0 0 0 2px color-mix(in oklab, var(--primary), black 20%);
+}
 </style>

@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
 import type { CallToAction as Props } from '~/types';
 
-const {
+const { 
   variant = 'secondary',
   target,
   text = Astro.slots.render('default'),
@@ -13,12 +13,64 @@ const {
   ...rest
 } = Astro.props;
 
+// Variantes "dumb": todo el look vive aquí o en `class`.
 const variants = {
+  // Starter que ya trae tu template (déjalos por compatibilidad)
   primary: 'btn-primary',
   secondary: 'btn-secondary',
   tertiary: 'btn btn-tertiary',
   link: 'cursor-pointer hover:text-primary',
+
+  // EvolvIA — 5 diseños oficiales
+  // 1) Hero rectangular: fondo turquesa + borde magenta
+  Primary: [
+    'rounded-none px-6 py-3',
+    'bg-[var(--aw-color-primary)] text-neutral-900',
+    'border-2 border-[var(--aw-color-secondary)]',
+    'hover:opacity-95 active:opacity-90',
+  ].join(' '),
+
+  // 2) Outline turquesa
+  outline: [
+    'rounded-2xl px-5 py-2.5',
+    'border-2 border-[var(--aw-color-primary)]',
+    'text-[var(--aw-color-primary)] bg-transparent',
+    'hover:bg-[var(--aw-color-primary)] hover:text-neutral-900',
+  ].join(' '),
+
+  // 3) Emerald sólido (usa tu --aw-color-emerald)
+  emerald: [
+    'rounded-2xl px-5 py-2.5',
+    'bg-[var(--aw-color-emerald)] text-white',
+    'hover:opacity-95 active:opacity-90',
+  ].join(' '),
+
+  // 4) Ghost (texto secundario)
+  ghost: [
+    'rounded-2xl px-4 py-2',
+    'bg-transparent text-[var(--aw-color-secondary)]',
+    'hover:bg-white/5',
+  ].join(' '),
+
+  // 5) Link-CTA subrayado
+  linkCta: [
+    'px-0 py-0',
+    'text-[var(--aw-color-secondary)] underline underline-offset-4 decoration-2',
+    'hover:text-[var(--aw-color-accent)]', // leve guiño al accent en hover
+  ].join(' '),
+
+  // 6) Ticket (el “botón vivo” del formulario)
+  ticket: 'btn-ticket px-7 sm:px-10 py-3.5 sm:py-4 font-extrabold tracking-tight text-[17px] sm:text-[18px]',
+
+  // Nuevo estilo para "Descubre EvolvIA"
+  discover: [
+    'bg-[var(--aw-color-button-emerald)]',
+    'rounded-none border-2 border-[var(--aw-color-secondary)]',
+    'px-10 py-5 text-xl font-heading text-white',
+    'hover:opacity-95 active:opacity-90',
+  ].join(' '),
 };
+
 ---
 
 {

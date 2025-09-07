@@ -22,25 +22,22 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
 
   <Hero
     actions={[
       {
         variant: 'primary',
         text: 'Inicia tu camino estratégico',
-        href: '',
-
-        // NO NECESITO ABRIR OTRA PESTAÑA POR EL MOMENTO
-        // target: '_blank',
-
-        icon: '',
-        class: 'rounded-none border-2 border-[var(--aw-color-secondary)]',
-      },
-      // BOTÓN OCULTO
-      // { text: 'Descubre EvolvIA', href: '#features' },
-    ]}
-  >
+        href: '#contacto',
+  
+          // NO NECESITO ABRIR OTRA PESTAÑA POR EL MOMENTO
+          // target: '_blank',
+  
+          icon: '',
+          class: 'rounded-none border-2 border-[var(--aw-color-secondary)]',
+        },
+      ]}
+    >
     <Fragment slot="image">
   <!-- FONDO -->
   <div class="relative mx-auto w-[320px] sm:w-[380px] md:w-[1000px]">
@@ -84,10 +81,7 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-  <!-- <Note title="Descubre" description="lo que tu organización ya está diciendo, aunque aún no tenga forma." /> -->
-
-  <!-- fondo1 -> radial-grey /> -->
+  <!-- ¿Qué es EvolvIA? -->
   <section
     id="features"
     class="bg-radial-grey text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -111,17 +105,18 @@ const metadata = {
 
     <!-- C -->
     <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
-      <Button
-        class="bg-emerald rounded-none border-2 border-[var(--aw-color-secondary)] text-xl px-10 py-5 font-heading"
-        text="Descubre EvolvIA"
-        href="#features"
-      />
-      <p class="text-primary mt-5 italic text-primary text-center text-lg">
-        Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
-      </p>
-    </div>
+  <Button
+    variant="discover"
+    text="Descubre EvolvIA"
+    href="#features"
+  />
+  <p class="text-primary mt-5 italic text-center text-lg">
+    Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+  </p>
+</div>
   </section>
 
+  <!-- ¿Qué hacemos? -->
   <Features2
     subtitle=""
     items={[
