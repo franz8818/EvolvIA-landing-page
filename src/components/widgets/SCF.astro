@@ -1,9 +1,7 @@
 ---
 import scf from '~/assets/recursos/SCF.png';
-/**
- * SCF — Symbiotic Cognitive Functions
- * Componente con la red SCF (imagen) + CTA
- */
+import scfBg from '~/assets/recursos/fondos/FCS.png';
+
 const {
   id = 'scf',
   classes = {},
@@ -13,44 +11,53 @@ const {
 ---
 
 <section id={id} class={`relative ${bgSection} text-white`}>
-  <!-- Barra superior -->
-  <div class="h-[3px] w-full bg-[var(--aw-color-primary,#00cfe5)]"></div>
+  <!-- Fondo FCS.png con filtros -->
+  <div
+    class="absolute inset-0 bg-cover bg-center opacity-60 brightness-90"
+    style={`background-image: url(${scfBg.src});`}
+  ></div>
 
-  <div class="max-w-7xl mx-auto px-6 py-12 sm:py-16 md:py-20">
-    <!-- Encabezados -->
-    <p class="text-center text-[clamp(0.9rem,1.6vw,1.2rem)] font-semibold text-[var(--aw-color-primary,#00cfe5)]">
-      Funciones Cognitivas Simbióticas
-    </p>
-    <h2 class="text-center font-heading font-bold leading-none text-[clamp(3rem,8vw,6.5rem)] tracking-tight">
-      Evolv<span class="text-[var(--aw-color-primary,#00cfe5)]">IA</span>
-    </h2>
+  <!-- Contenido encima -->
+  <div class="relative z-10">
+    <!-- Barra superior -->
+    <div class="h-[3px] w-full bg-[var(--aw-color-primary,#00cfe5)]"></div>
 
-    <!-- Imagen -->
-    <div class="mt-8 md:mt-10">
-      <img
-        src={scf.src}
-        alt="Red de funciones cognitivas de EvolvIA"
-        class="mx-auto w-full sm:w-3/4 md:w-2/3 lg:max-w-4xl h-auto select-none"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-
-    <!-- CTA -->
-    <div class="mt-10 md:mt-12 flex flex-col items-center">
-      <a
-        href="#contacto"
-        class="inline-flex items-center px-6 py-4
-               border-2 rounded-md font-heading text-lg md:text-xl
-               bg-transparent border-[var(--aw-color-primary,#00cfe5)]
-               hover:bg-[var(--aw-color-primary,#00cfe5)] hover:text-neutral-900
-               transition-colors"
-      >
-        Sumérgete en nuestro ecosistema
-      </a>
-      <p class="mt-4 text-center text-[clamp(.85rem,1.4vw,1rem)] opacity-80 max-w-2xl">
-        Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+    <div class="max-w-7xl mx-auto px-6 py-12 sm:py-16 md:py-20">
+      <!-- Encabezados -->
+      <p class="text-center text-[clamp(0.9rem,1.6vw,1.2rem)] font-semibold text-[var(--aw-color-primary,#00cfe5)]">
+        Funciones Cognitivas Simbióticas
       </p>
+      <h2 class="text-center font-heading font-bold leading-none text-[clamp(3rem,8vw,6.5rem)] tracking-tight">
+        Evolv<span class="text-[var(--aw-color-primary,#00cfe5)]">IA</span>
+      </h2>
+
+      <!-- Imagen -->
+      <div class="mt-8 md:mt-10">
+        <img
+          src={scf.src}
+          alt="Red de funciones cognitivas de EvolvIA"
+          class="mx-auto w-full sm:w-3/4 md:w-2/3 lg:max-w-4xl h-auto select-none"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 md:mt-12 flex flex-col items-center">
+        <a
+          href="#contacto"
+          class="inline-flex items-center px-6 py-4
+                 border-2 rounded-md font-heading text-lg md:text-xl
+                 bg-transparent border-[var(--aw-color-primary,#00cfe5)]
+                 hover:bg-[var(--aw-color-primary,#00cfe5)] hover:text-neutral-900
+                 transition-colors"
+        >
+          Sumérgete en nuestro ecosistema
+        </a>
+        <p class="mt-4 text-center text-[clamp(.85rem,1.4vw,1rem)] opacity-80 max-w-2xl">
+          Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+        </p>
+      </div>
     </div>
   </div>
 </section>

@@ -1,9 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
-import type { CallToAction as Props } from '~/types';
 
-const { 
+const {
   variant = 'secondary',
   target,
   text = Astro.slots.render('default'),
@@ -23,7 +22,7 @@ const variants = {
 
   // EvolvIA — 5 diseños oficiales
   // 1) Hero rectangular: fondo turquesa + borde magenta
-  Primary: [
+  evolviaPrimary: [
     'rounded-none px-6 py-3',
     'bg-[var(--aw-color-primary)] text-neutral-900',
     'border-2 border-[var(--aw-color-secondary)]',
@@ -46,11 +45,7 @@ const variants = {
   ].join(' '),
 
   // 4) Ghost (texto secundario)
-  ghost: [
-    'rounded-2xl px-4 py-2',
-    'bg-transparent text-[var(--aw-color-secondary)]',
-    'hover:bg-white/5',
-  ].join(' '),
+  ghost: ['rounded-2xl px-4 py-2', 'bg-transparent text-[var(--aw-color-secondary)]', 'hover:bg-white/5'].join(' '),
 
   // 5) Link-CTA subrayado
   linkCta: [
@@ -64,13 +59,13 @@ const variants = {
 
   // Nuevo estilo para "Descubre EvolvIA"
   discover: [
-    'bg-[var(--aw-color-button-emerald)]',
-    'rounded-none border-2 border-[var(--aw-color-secondary)]',
-    'px-10 py-5 text-xl font-heading text-white',
+    'rounded-none px-10 py-5',
+    'bg-[var(--aw-color-emerald)] text-white', 
+    'border-2 border-[var(--aw-color-secondary)]',
+    'font-heading text-xl',
     'hover:opacity-95 active:opacity-90',
   ].join(' '),
 };
-
 ---
 
 {

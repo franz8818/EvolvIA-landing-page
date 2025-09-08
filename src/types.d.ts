@@ -181,8 +181,15 @@ export interface Disclaimer {
 }
 
 // COMPONENTS
+
+export type ButtonVariant =
+  | 'primary' | 'secondary' | 'tertiary' | 'link'
+  | 'evolviaPrimary' | 'discover'
+  | 'outline' | 'emerald' | 'ghost' | 'linkCta' | 'ticket';
+
 export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
+  variant?: | 'primary' | 'secondary' | 'tertiary' | 'link'
+  | 'evolviaPrimary' | 'outline' | 'emerald' | 'ghost' | 'linkCta' | 'ticket' | 'discover';
   text?: string;
   icon?: string;
   classes?: Record<string, string>;

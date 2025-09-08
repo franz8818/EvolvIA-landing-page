@@ -69,52 +69,98 @@ import '@fontsource-variable/inter';
     font-style: normal;
   }
 
-  /* ===========================
-   Botón tipo "ticket" (antes btn-alive)
-   100% CSS (sin spans auxiliares)
+/* ===========================
+   BTN HERO — skin v2 (pure CSS)
+   - fondo cian
+   - biseles amplios
+   - “circuito” magenta arriba izq / abajo der
+   - filete superior derecho
+   - barra punteada derecha con remate magenta
+   - puntitos decorativos
 =========================== */
-.btn-ticket{
-  --primary: var(--aw-color-primary, #00cfe5);
-  --ink: var(--aw-color-text-default, #101010);
+.btn-hero-v2{
+  --c: var(--aw-color-primary, #00e8ee);   /* cian */
+  --m: var(--aw-color-secondary, #f628a7); /* magenta */
+  --ink: #0b1320;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   color: var(--ink);
-  border-radius: 1rem; /* ~rounded-2xl */
-  background: linear-gradient(180deg,
-    color-mix(in oklab, var(--primary), white 15%),
-    var(--primary));
-  box-shadow:
-    0 8px 24px color-mix(in oklab, var(--primary), transparent 70%),
-    inset 0 0 0 2px color-mix(in oklab, var(--primary), #000 15%);
-  transition: transform .15s ease;
+  font-weight: 800;
+  letter-spacing: -.01em;
+
+  /* base */
+  background: var(--c);
+  /* biseles (algo más grandes que v1) */
+  clip-path: polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px);
+
+  /* ritmo */
+  transition: transform .15s ease, filter .15s ease;
 }
-.btn-ticket::before,
-.btn-ticket::after{
+.btn-hero-v2:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+.btn-hero-v2:active{ transform: translateY(0); filter: none; }
+
+/* Capa de “circuito” y filetes (magenta) */
+.btn-hero-v2::before{
   content: '';
   position: absolute;
-  left: 8px;
-  right: 8px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--primary);
-  filter: drop-shadow(0 0 8px color-mix(in oklab, var(--primary), transparent 30%));
-}
-.btn-ticket::before{ top: -7px; }
-.btn-ticket::after { bottom: -7px; }
+  inset: 0;
+  pointer-events: none;
 
-.btn-ticket:hover{ transform: translateY(-1px); }
-.btn-ticket:active{
-  transform: translateY(0);
-  box-shadow: inset 0 0 0 3px rgba(0,0,0,.08);
+  /* múltiples layers posicionados */
+  background:
+    /* ── esquina sup-izq: tramo horizontal largo + “codo” + tramo vertical */
+    linear-gradient(90deg,var(--m),var(--m)) top 10px left 40px/130px 3px no-repeat,
+    linear-gradient(var(--m),var(--m))        top 10px left 28px/3px 26px no-repeat,
+    linear-gradient(135deg,var(--m),var(--m)) top 15px left 15px/22px 3px no-repeat,
+
+    /* ── esquina inf-der: tramo horizontal base + “codo” + tramo vertical */
+    linear-gradient(90deg,var(--m),var(--m)) bottom 10px right 40px/130px 3px no-repeat,
+    linear-gradient(var(--m),var(--m))        bottom 10px right 28px/3px 26px no-repeat,
+    linear-gradient(-45deg,var(--m),var(--m)) bottom 15px right 15px/22px 3px no-repeat,
+
+    /* ── filete superior derecho largo del arte */
+    linear-gradient(90deg,var(--m),var(--m)) top 16px right 56px/190px 3px no-repeat;
 }
 
-/* (Opcional) ajuste para dark mode si lo activas por clase .dark */
-.dark .btn-ticket{
-  --ink: var(--aw-color-text-default, #e5ecf6);
-  box-shadow:
-    0 8px 24px color-mix(in oklab, var(--primary), transparent 70%),
-    inset 0 0 0 2px color-mix(in oklab, var(--primary), black 20%);
+/* Puntitos + barra punteada derecha */
+.btn-hero-v2::after{
+  content:'';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    /* puntitos magenta top-left (en diagonal leve) */
+    radial-gradient(circle 1.5px at 172px 14px, var(--m) 99%, transparent 100%) no-repeat,
+    radial-gradient(circle 1.5px at 180px 14px, var(--m) 99%, transparent 100%) no-repeat,
+    radial-gradient(circle 1.5px at 188px 14px, var(--m) 99%, transparent 100%) no-repeat,
+
+    /* puntitos magenta bottom-right */
+    radial-gradient(circle 1.5px at calc(100% - 92px) calc(100% - 14px), var(--m) 99%, transparent 100%) no-repeat,
+    radial-gradient(circle 1.5px at calc(100% - 84px) calc(100% - 14px), var(--m) 99%, transparent 100%) no-repeat,
+    radial-gradient(circle 1.5px at calc(100% - 76px) calc(100% - 14px), var(--m) 99%, transparent 100%) no-repeat,
+
+    /* barra punteada cian clara */
+    repeating-linear-gradient(
+      to right,
+      color-mix(in oklab, var(--c), white 35%) 0 6px,
+      transparent 6px 12px
+    ) calc(100% - 250px) 50%/220px 3px no-repeat,
+
+    /* remate magenta al final */
+    linear-gradient(90deg,var(--m),var(--m)) calc(100% - 30px) 50%/20px 3px no-repeat;
 }
+
+/* Tamaños “Hero” por defecto; puedes sobre-escribir con Tailwind donde lo uses */
+.btn-hero-v2 {
+  padding: .9rem 2rem;
+  font-size: clamp(1.05rem, 1.65vw, 1.45rem);
+}
+@media (min-width: 768px){
+  .btn-hero-v2{ padding: 1.15rem 3.5rem; }
+}
+
 </style>
