@@ -13,11 +13,10 @@ import Button from '~/components/ui/Button.astro';
 import SpiralGraphic from '~/components/ui/SpiralGraphic.astro';
 
 import logo from '~/assets/recursos/logo/EvolvIA-2.png';
-import heroBgLogo from '~/assets/recursos/fondos/Landing_Fondo01.png';
+import heroBgLogo from '~/assets/recursos/fondos/logoBG.png';
 import heroBgHero from '~/assets/recursos/fondos/Hero.png';
 import featuresBg from '~/assets/recursos/fondos/que_es.png';
 import scfBg from '~/assets/recursos/fondos/FCS.png';
-
 
 const metadata = {
   title: 'EvolvIA — Ventures',
@@ -38,44 +37,49 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
         class: 'btn-hero-v2',
       },
     ]}
-  >
+   headlineClasses={{
+    title: 'text-2xl md:text-4xl font-semibold tracking-tight font-heading mb-8'
+  }}
+>
+  
     <!-- Fondo general del Hero -->
     <Fragment slot="bg">
       <div
-        class="absolute inset-0 bg-cover bg-center opacity-50 brightness-90"
+        class="absolute inset-0 bg-cover bg-center opacity-55 brightness-90"
         style={`background-image: url(${heroBgHero.src});`}
       >
       </div>
     </Fragment>
 
-    <!-- Imagen/logo dentro -->
-    <Fragment slot="image">
-      <div class="relative mx-auto w-[320px] sm:w-[380px] md:w-[1000px]">
-        <!-- Fondo detrás del logo -->
-        <img
-          src={heroBgLogo.src ?? heroBgLogo}
-          alt=""
-          aria-hidden="true"
-          class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        />
+ <Fragment slot="image">
+  <!-- wrapper full-bleed -->
+  <div class="relative w-screen max-w-none aspect-[2/1] left-1/2 right-1/2 -mx-[50vw]">
+    <!-- Fondo ocupa todo el viewport -->
+    <img
+      src={heroBgLogo.src ?? heroBgLogo}
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+    />
 
-        <!-- Logo -->
-        <img
-          src={logo.src ?? logo}
-          alt="EvolvIA Logo"
-          class="relative z-10 h-auto
-               w-[40%] sm:w-[50%] md:w-[30%]
-               mx-auto block"
-        />
-      </div>
-    </Fragment>
+    <!-- Logo centrado sobre el fondo -->
+    <img
+      src={logo.src ?? logo}
+      alt="EvolvIA Logo"
+      class="relative z-10 h-auto w-[40%] sm:w-[30%] md:w-[20%] mx-auto block"
+    />
+  </div>
+</Fragment>
+
+
+
 
     <!-- Título -->
     <Fragment slot="title">
-      <span class="font-heading px-4 py-2 md:px-8 md:py-8">
-        Bienvenido a <span class="dark:text-white">Evolv<span class="text-primary">IA</span></span>
-      </span>
-    </Fragment>
+    <span class="font-heading">
+      Bienvenido a <span class="dark:text-white">Evolv<strong>IA</strong></span>
+    </span>
+  </Fragment>
 
     <!-- Subtítulo -->
     <Fragment slot="subtitle">
@@ -88,66 +92,51 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
 
     <!-- Texto de apoyo -->
     <Fragment slot="content">
-      <p class="text-emerald mt-5 italic text-primary text-center text-lg">
+      <p class="text-emerald mt-2 italic text-primary text-center text-lg">
         Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
       </p>
     </Fragment>
   </Hero>
 
   <!-- ¿Qué es EvolvIA? -->
-<section
-  id="features"
-  class="relative text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20"
->
-  <!-- Fondo -->
-  <div
-    class="absolute inset-0 bg-cover bg-center"
-    style={`background-image: url(${featuresBg.src});`}
-  ></div>
+  <section id="features" class="relative text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20">
+    <!-- Fondo -->
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url(${featuresBg.src});`}></div>
 
-  <!-- Overlay oscuro -->
-  <div class="absolute inset-0 bg-black/25"></div>
+    <!-- Overlay oscuro -->
+    <div class="absolute inset-0 bg-black/25"></div>
 
-  <!-- Contenido por encima del fondo -->
-  <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-    <!-- A -->
-    <div class="col-span-1 flex flex-col items-center justify-center">
-      <p class="text-primary font-bold uppercase mb-4 text-lg md:text-xl">¿Qué es?</p>
-      <h2 class="text-6xl md:text-7xl font-heading font-bold">Evolv<span>IA</span></h2>
+    <!-- Contenido por encima del fondo -->
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- A -->
+      <div class="col-span-1 flex flex-col items-center justify-center">
+        <p class="text-primary font-bold uppercase mb-4 text-lg md:text-xl">¿Qué es?</p>
+        <h2 class="text-6xl md:text-7xl font-heading font-bold">Evolv<strong>IA</strong></h2>
+      </div>
+
+      <!-- B -->
+      <div class="col-span-1 md:col-span-2 border-l border-gray-500 pl-8">
+        <h3 class="text-primary text-3xl font-bold mb-4">
+          EvolvIA no es una herramienta ni una consultora tradicional.
+        </h3>
+        <p class="mb-4 text-lg">
+          Es un sistema vivo que integra funciones cognitivas activas —<em><strong>humanas y artificiales</strong></em>—
+          para ayudar a las organizaciones a evolucionar con coherencia, estrategia y sentido.
+        </p>
+        <h4 class="text-2xl font-bold">Trabajamos en red, no en jerarquía</h4>
+        <p class="text-primary text-lg">Desde la tensión real de cada organización, no desde recetas.</p>
+      </div>
+
+      <!-- C -->
+      <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
+        <Button variant="discover" class="md:px-12" text="Descubre EvolvIA" href={WA} target="_blank" />
+
+        <p class="text-primary mt-5 italic text-center text-lg">
+          Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
+        </p>
+      </div>
     </div>
-
-    <!-- B -->
-    <div class="col-span-1 md:col-span-2 border-l border-gray-500 pl-8">
-      <h3 class="text-primary text-3xl font-bold mb-4">
-        EvolvIA no es una herramienta ni una consultora tradicional.
-      </h3>
-      <p class="mb-4 text-lg">
-        Es un sistema vivo que integra funciones cognitivas activas —<em>humanas y artificiales</em>— 
-        para ayudar a las organizaciones a evolucionar con coherencia, estrategia y sentido.
-      </p>
-      <h4 class="text-2xl font-bold">Trabajamos en red, no en jerarquía</h4>
-      <p class="text-primary text-lg">
-        Desde la tensión real de cada organización, no desde recetas.
-      </p>
-    </div>
-
-    <!-- C -->
-    <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
-      <Button
-        variant="discover"
-        class="md:px-12"
-        text="Descubre EvolvIA"
-        href={WA}
-        target="_blank"
-      />
-
-      <p class="text-primary mt-5 italic text-center text-lg">
-        Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
-      </p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- ¿Qué hacemos? -->
   <Features2
@@ -234,77 +223,74 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
 -->
 
   <Content
-  isAfterContent
-  isReversed={true}
-  items={[
-    {
-      title: '- No creemos en fórmulas, <b>creamos condiciones</b>.',
-    },
-    {
-      title: '- Donde otros trazan planes, <b>nosotros cultivamos presencia.</b>',
-    },
-    {
-      title: '- No dirigimos, <b>acompañamos lo que quiere emerger.</b>',
-    },
-    {
-      title: '- Transformar no es ejecutar, <b>es orquestar sentido.</b>',
-    },
-    {
-      title: '- Las organizaciones no se gestionan, <b>se escuchan.</b>',
-    },
-  ]}
-  classes={{
-    container: 'md:flex md:gap-16 relative text-white font-sans',
-    title: 'text-white',
-    description: 'text-white',
-  }}
->
-  <!-- Fondo con imagen + overlay -->
-  <Fragment slot="bg">
+    isAfterContent
+    isReversed={true}
+    items={[
+      {
+        title: '- No creemos en fórmulas, <b>creamos condiciones</b>.',
+      },
+      {
+        title: '- Donde otros trazan planes, <b>nosotros cultivamos presencia.</b>',
+      },
+      {
+        title: '- No dirigimos, <b>acompañamos lo que quiere emerger.</b>',
+      },
+      {
+        title: '- Transformar no es ejecutar, <b>es orquestar sentido.</b>',
+      },
+      {
+        title: '- Las organizaciones no se gestionan, <b>se escuchan.</b>',
+      },
+    ]}
+    classes={{
+      container: 'md:flex md:gap-16 relative text-white font-sans',
+      title: 'text-white',
+      description: 'text-white',
+    }}
+  >
+    <!-- Fondo con imagen + overlay -->
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url(${featuresBg.src});`}></div>
+      <div class="absolute inset-0 bg-black/40"></div>
+    </Fragment>
+
+    <!-- Spiral -->
+    <Fragment slot="image">
+      <div class="max-w-md mx-auto">
+        <SpiralGraphic />
+      </div>
+    </Fragment>
+
+    <!-- callToAction -->
+    <Fragment slot="cta">
+      <CallToAction
+        actions={[
+          {
+            variant: 'primary',
+            text: '¡Activa una conversación viva!',
+            href: WA,
+            target: '_blank',
+            class: 'px-1 py-1 text-sm rounded-full',
+          },
+        ]}
+      />
+    </Fragment>
+  </Content>
+
+  <!-- ¿Cómo opera? -->
+  <div class="relative">
+    <!-- Fondo Hero.png con filtros -->
     <div
-      class="absolute inset-0 bg-cover bg-center"
-      style={`background-image: url(${featuresBg.src});`}
-    ></div>
-    <div class="absolute inset-0 bg-black/40"></div>
-  </Fragment>
-
-  <!-- Spiral -->
-  <Fragment slot="image">
-    <div class="max-w-md mx-auto">
-      <SpiralGraphic />
+      class="absolute inset-0 bg-cover bg-center opacity-50 brightness-90"
+      style={`background-image: url(${heroBgHero.src});`}
+    >
     </div>
-  </Fragment>
 
-  <!-- callToAction -->
-  <Fragment slot="cta">
-    <CallToAction
-      actions={[
-        {
-          variant: 'primary',
-          text: '¡Activa una conversación viva!',
-          href: WA,
-          target: '_blank',
-          class: 'px-1 py-1 text-sm rounded-full',
-        },
-      ]}
-    />
-  </Fragment>
-</Content>
-
- <!-- ¿Cómo opera? -->
-<div class="relative">
-  <!-- Fondo Hero.png con filtros -->
-  <div
-    class="absolute inset-0 bg-cover bg-center opacity-50 brightness-90"
-    style={`background-image: url(${heroBgHero.src});`}
-  ></div>
-
-  <!-- Contenido siempre por encima -->
-  <div class="relative z-10">
-    <HowItWorks />
+    <!-- Contenido siempre por encima -->
+    <div class="relative z-10">
+      <HowItWorks />
+    </div>
   </div>
-</div>
-
 
   <!-- SCF: Funciones Cognitivas Simbióticas -->
   <SCF />

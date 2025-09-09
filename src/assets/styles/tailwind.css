@@ -115,7 +115,11 @@
 }
 
 /* To deprecated */
-
 .dd *:first-child {
   margin-top: 0;
+}
+
+
+html, body {
+  overflow-x: hidden;
 }

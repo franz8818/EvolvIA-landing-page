@@ -224,7 +224,11 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' |
   content?: string;
   actions?: string | CallToAction[];
   image?: string | unknown;
+
+  
+  headlineClasses?: HeadlineClasses;
 }
+
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {
   team?: Array<TeamMember>;
@@ -284,5 +288,13 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
   callToAction?: CallToAction;
 }
+
+// Permite sobreescribir clases del título/subtítulo/contenedor
+export interface HeadlineClasses {
+  container?: string;
+  title?: string;
+  subtitle?: string;
+}
+
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
