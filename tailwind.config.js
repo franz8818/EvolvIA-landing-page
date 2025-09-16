@@ -10,8 +10,10 @@ export default {
         primary: 'var(--aw-color-primary)',
         secondary: 'var(--aw-color-secondary)',
         accent: 'var(--aw-color-accent)',
+        heading: 'var(--aw-color-text-heading)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        emerald: 'var(--aw-color-emerald)',
       },
       fontFamily: {
         sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
@@ -36,5 +38,4 @@ export default {
       addVariant('intersect', '&:not([no-intersect])');
     }),
   ],
-  darkMode: "class", // Esto está habilitando el dark mode -> Para activar -> darkMode: 'class'
 };

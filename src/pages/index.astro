@@ -25,6 +25,7 @@ const metadata = {
 const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar%20mi%20camino%20estrat%C3%A9gico';
 ---
 
+<!------------ HERO --------------->
 <Layout metadata={metadata}>
   <Hero
     actions={[
@@ -33,54 +34,48 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
         text: 'Inicia tu camino estratégico',
         href: WA,
         target: '_blank',
-        class: 'btn-hero-v2',
+        // class: 'btn-hero-v2',  // 🔕 eliminado para no alterar el look
       },
     ]}
-   headlineClasses={{
-    title: 'text-2xl md:text-4xl font-semibold tracking-tight font-heading mb-8'
-  }}
->
-  
-    <!-- Fondo general del Hero -->
+    headlineClasses={{
+      title: 'text-2xl md:text-4xl font-semibold tracking-tight font-heading mb-8',
+    }}
+  >
+    <!-- Fondo de Hero -->
     <Fragment slot="bg">
       <div
-        class="absolute inset-0 bg-cover bg-center opacity-55 brightness-90"
+        class="absolute inset-0 bg-cover bg-center opacity-30 brightness-60"
         style={`background-image: url(${heroBgHero.src});`}
       >
       </div>
     </Fragment>
 
- <Fragment slot="image">
-  <!-- wrapper full-bleed -->
-  <div class="relative w-screen max-w-none aspect-[2/1] left-1/2 right-1/2 -mx-[50vw]">
-    <!-- Fondo ocupa todo el viewport -->
-    <img
-      src={heroBgLogo.src ?? heroBgLogo}
-      alt=""
-      aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-    />
-
-    <!-- Logo centrado sobre el fondo -->
-    <img
-      src={logo.src ?? logo}
-      alt="EvolvIA Logo"
-      class="relative z-10 h-auto w-[40%] sm:w-[30%] md:w-[20%] mx-auto block"
-    />
-  </div>
-</Fragment>
-
-
-
+    <!-- Fonde del logo -->
+    <Fragment slot="image">
+      <div class="relative w-screen max-w-none aspect-[2/1] left-1/2 right-1/2 -mx-[50vw]">
+        <img
+          src={heroBgLogo.src ?? heroBgLogo}
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        />
+        <!-- Logo -->
+        <img
+          src={logo.src ?? logo}
+          alt="EvolvIA Logo"
+          class="relative z-10 h-auto w-[40%] sm:w-[30%] md:w-[20%] mx-auto block"
+        />
+      </div>
+    </Fragment>
 
     <!-- Título -->
     <Fragment slot="title">
-    <span class="font-heading">
-      Bienvenido a <span class="dark:text-white">Evolv<strong>IA</strong></span>
-    </span>
-  </Fragment>
+      <span class="font-heading">
+        Bienvenido a <span class="dark:text-white">Evolv<strong>IA</strong></span>
+      </span>
+    </Fragment>
 
-    <!-- Subtítulo -->
+    <!-- Slogan -->
     <Fragment slot="subtitle">
       Diseñamos y acompañamos procesos de transformación profunda desde una arquitectura híbrida de inteligencia humana
       y simbiótica.
@@ -89,7 +84,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
       </span>
     </Fragment>
 
-    <!-- Texto de apoyo -->
+    <!-- Slogan Button -->
     <Fragment slot="content">
       <p class="text-emerald mt-2 italic text-primary text-center text-lg">
         Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
@@ -97,7 +92,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
     </Fragment>
   </Hero>
 
-  <!-- ¿Qué es EvolvIA? -->
+  <!------------ ¿QUÉ ES EVOLVIA? ------------>
   <section id="features" class="relative text-white w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20">
     <!-- Fondo -->
     <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url(${featuresBg.src});`}></div>
@@ -105,7 +100,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
     <!-- Overlay oscuro -->
     <div class="absolute inset-0 bg-black/25"></div>
 
-    <!-- Contenido por encima del fondo -->
+    <!-- Distribución -->
     <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- A -->
       <div class="col-span-1 flex flex-col items-center justify-center">
@@ -128,8 +123,9 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
 
       <!-- C -->
       <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
-        <Button variant="discover" class="md:px-12" text="Descubre EvolvIA" href={WA} target="_blank" />
+        <Button variant="discover" text="Descubre EvolvIA" href={WA} target="_blank" class="md:px-12" />
 
+        <!-- Slogan Button -->
         <p class="text-primary mt-5 italic text-center text-lg">
           Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
         </p>
@@ -137,78 +133,40 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
     </div>
   </section>
 
-  <!-- ¿Qué hacemos? -->
+  <!------------ ¿QUÉ HACEMOS? --------------->
   <Features2
     subtitle=""
     items={[
-      {
-        title: 'Diagnóstico vivo del momento organizacional',
-        description: '',
-        // icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Rediseño estructural y adaptativo',
-        description: '',
-        // icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Acompañamiento estratégico en procesos de cambio',
-        description: '',
-        // icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Activación de equipos con propósito',
-        description: '',
-        // icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Diseño de narrativa estratégica y posicionamiento',
-        description: '',
-        // icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Lectura evolutiva del entorno y mercado',
-        description: '',
-        // icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Escalamiento con sentido y coherencia',
-        description: '',
-        // icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Cuidado profundo de la cultura y el clima',
-        description: '',
-        // icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Alineación entre propósito, personas y procesos',
-        description: '',
-        // icon: 'flat-color-icons:database',
-      },
+      { title: 'Diagnóstico vivo del momento organizacional', description: '' },
+      { title: 'Rediseño estructural y adaptativo', description: '' },
+      { title: 'Acompañamiento estratégico en procesos de cambio', description: '' },
+      { title: 'Activación de equipos con propósito', description: '' },
+      { title: 'Diseño de narrativa estratégica y posicionamiento', description: '' },
+      { title: 'Lectura evolutiva del entorno y mercado', description: '' },
+      { title: 'Escalamiento con sentido y coherencia', description: '' },
+      { title: 'Cuidado profundo de la cultura y el clima', description: '' },
+      { title: 'Alineación entre propósito, personas y procesos', description: '' },
     ]}
   >
-    <!-- Título personalizado con color institucional -->
+    <!-- Título -->
     <Fragment slot="title">
       <h2 class="text-primary text-4xl font-heading font-bold text-center">¿Qué hacemos?</h2>
     </Fragment>
 
-    <!-- Fondo con "emerald" -->
+    <!-- Fondo -->
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-page-features2 dark:bg-transparent"></div>
     </Fragment>
 
-    <!-- Botón llamado a la acción -->
+    <!-- Botón -->
     <Fragment slot="content">
       <div class="mt-8 text-center">
-        <Fragment slot="content">
-          <div class="mt-8 text-center">
-            <Button text="Activemos la conversación" href={WA} target="_blank" variant="primary" />
-          </div>
-        </Fragment>
+        <!-- (había un Fragment duplicado con el mismo slot; lo simplifico) -->
+        <Button text="Activemos la conversación" href={WA} target="_blank" variant="primary" />
       </div>
     </Fragment>
 
+    <!-- Slogan Button -->
     <Fragment slot="content">
       <p class="text-emerald mt-5 italic text-primary text-center text-lg">
         Descubre lo que tu organización ya está diciendo, aunque aún no tenga forma.
@@ -216,30 +174,16 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
     </Fragment>
   </Features2>
 
-  <!-- 
-  Prop: isReversed
-  Función: invierte el orden de imagen y contenido en pantallas ≥ md
--->
-
+  <!------------ MANIFIESTO EVOLUTIVO ------------>
   <Content
     isAfterContent
     isReversed={true}
     items={[
-      {
-        title: '- No creemos en fórmulas, <b>creamos condiciones</b>.',
-      },
-      {
-        title: '- Donde otros trazan planes, <b>nosotros cultivamos presencia.</b>',
-      },
-      {
-        title: '- No dirigimos, <b>acompañamos lo que quiere emerger.</b>',
-      },
-      {
-        title: '- Transformar no es ejecutar, <b>es orquestar sentido.</b>',
-      },
-      {
-        title: '- Las organizaciones no se gestionan, <b>se escuchan.</b>',
-      },
+      { title: '- No creemos en fórmulas, <b>creamos condiciones</b>.' },
+      { title: '- Donde otros trazan planes, <b>nosotros cultivamos presencia.</b>' },
+      { title: '- No dirigimos, <b>acompañamos lo que quiere emerger.</b>' },
+      { title: '- Transformar no es ejecutar, <b>es orquestar sentido.</b>' },
+      { title: '- Las organizaciones no se gestionan, <b>se escuchan.</b>' },
     ]}
     classes={{
       container: 'md:flex md:gap-16 relative text-white font-sans',
@@ -247,7 +191,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
       description: 'text-white',
     }}
   >
-    <!-- Fondo con imagen + overlay -->
+    <!-- Fondo -->
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url(${featuresBg.src});`}></div>
       <div class="absolute inset-0 bg-black/40"></div>
@@ -260,7 +204,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
       </div>
     </Fragment>
 
-    <!-- callToAction -->
+    <!-- Botón -->
     <Fragment slot="cta">
       <CallToAction
         actions={[
@@ -269,31 +213,31 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
             text: '¡Activa una conversación viva!',
             href: WA,
             target: '_blank',
-            class: 'px-1 py-1 text-sm rounded-full',
+            // class: 'px-1 py-1 text-sm rounded-full',  // 🔕 eliminado para no alterar el look
           },
         ]}
       />
     </Fragment>
   </Content>
 
-  <!-- ¿Cómo opera? -->
+  <!------------ ¿CÓMO OPERA? ------------>
   <div class="relative">
-    <!-- Fondo Hero.png con filtros -->
+    <!-- Fondo -->
     <div
       class="absolute inset-0 bg-cover bg-center opacity-50 brightness-90"
       style={`background-image: url(${heroBgHero.src});`}
     >
     </div>
 
-    <!-- Contenido siempre por encima -->
     <div class="relative z-10">
       <HowItWorks />
     </div>
   </div>
 
-  <!-- SCF: Funciones Cognitivas Simbióticas -->
+  <!------------ SCF ------------>
   <SCF />
 
-  <!-- Formulario de Contacto -->
+  <!------------ FORMULARIO DE CONTACTO ------------>
   <ContactForm id="contacto" />
+
 </Layout>
