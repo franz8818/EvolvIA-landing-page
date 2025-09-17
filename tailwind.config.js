@@ -18,7 +18,7 @@ export default {
       fontFamily: {
         sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
         serif: ['Georgia', ...defaultTheme.fontFamily.serif],
-        heading: ['weezerfont', ...defaultTheme.fontFamily.sans], // Aquí defines tu font-heading
+        heading: ['SpaceGrotesk', ...defaultTheme.fontFamily.sans], // Aquí defines tu font-heading
       },
       animation: {
         fade: 'fadeInUp 1s both',

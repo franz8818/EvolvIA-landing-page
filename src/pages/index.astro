@@ -34,7 +34,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
         text: 'Inicia tu camino estratégico',
         href: WA,
         target: '_blank',
-        // class: 'btn-hero-v2',  // 🔕 eliminado para no alterar el look
+        // class: 'btn-hero-v2', //eliminado para no alterar la apariencia
       },
     ]}
     headlineClasses={{
@@ -50,7 +50,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
       </div>
     </Fragment>
 
-    <!-- Fonde del logo -->
+    <!-- Fondo del logo -->
     <Fragment slot="image">
       <div class="relative w-screen max-w-none aspect-[2/1] left-1/2 right-1/2 -mx-[50vw]">
         <img
@@ -63,7 +63,9 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
         <img
           src={logo.src ?? logo}
           alt="EvolvIA Logo"
-          class="relative z-10 h-auto w-[40%] sm:w-[30%] md:w-[20%] mx-auto block"
+          class="relative z-10 h-auto
+         w-[400px] sm:w-[600px] md:w-[800px] lg:w-[1360px]
+         mx-auto block"
         />
       </div>
     </Fragment>
@@ -71,7 +73,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
     <!-- Título -->
     <Fragment slot="title">
       <span class="font-heading">
-        Bienvenido a <span class="dark:text-white">Evolv<strong>IA</strong></span>
+        Bienvenido a Evolv<strong>IA</strong>
       </span>
     </Fragment>
 
@@ -79,7 +81,7 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
     <Fragment slot="subtitle">
       Diseñamos y acompañamos procesos de transformación profunda desde una arquitectura híbrida de inteligencia humana
       y simbiótica.
-      <span class="block mt-4 text-2xl font-bold text-black dark:text-white">
+      <span class="block mt-4 text-2xl font-bold text-default">
         No vendemos soluciones. <span class="">Activamos saltos evolutivos.</span>
       </span>
     </Fragment>
@@ -239,5 +241,4 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
 
   <!------------ FORMULARIO DE CONTACTO ------------>
   <ContactForm id="contacto" />
-
 </Layout>
