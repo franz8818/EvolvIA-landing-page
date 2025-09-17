@@ -35,7 +35,7 @@ const {
   </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+    <div class="pointer-events-none"></div>
     <div class="py-8 md:py-2">
       <div class={twMerge('text-center pb-8 md:pb-8 max-w-none', headlineContainerClass)}>
         <div
@@ -43,7 +43,7 @@ const {
         >
           {
             image && (
-              <div class="relative w-full max-w-none -mx-4 sm:-mx-6 md:mb-6 mb-0">
+              <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw] md:mb-6 mb-0">
                 {typeof image === 'string' ? (
                   <Fragment set:html={image} />
                 ) : (
