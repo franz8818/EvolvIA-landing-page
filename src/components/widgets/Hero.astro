@@ -72,18 +72,17 @@ const {
         }
 
         {
-  title && (
-    <h1
-      class={twMerge(
-        'px-4 py-2 md:px-8 md:py-4 text-5xl md:text-6xl tracking-tighter mb-8 text-heading font-heading',
-        headlineTitleClass,
-        'font-normal' // <- forza sobre cualquier font-semibold
-      )}
-      set:html={title}
-    />
-  )
-}
-
+          title && (
+            <h1
+              class={twMerge(
+                'px-4 py-2 md:px-8 md:py-4 text-5xl md:text-6xl tracking-tighter mb-8 text-heading font-heading',
+                headlineTitleClass,
+                'font-normal' // <- forza sobre cualquier font-semibold
+              )}
+              set:html={title}
+            />
+          )
+        }
 
         <div class="max-w-3xl mx-auto">
           {
@@ -100,11 +99,11 @@ const {
 
           {
             actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+              <div class="m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class={`w-full sm:mb-0 ${action?.class || ''}`} />
+                    <div class="flex">
+                      <Button {...(action || {})} class={`${action?.class || ''}`} />
                     </div>
                   ))
                 ) : (

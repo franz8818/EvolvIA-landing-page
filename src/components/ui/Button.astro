@@ -1,70 +1,54 @@
 ---
 import { twMerge } from 'tailwind-merge';
 
+// SVG local (como URL para background-image)
+import heroSkin from '~/assets/recursos/buttons/Hero.svg?url';
+
 const {
-  variant = 'secondary',
-  target,
   text = Astro.slots.render('default'),
   class: className = '',
   type,
+  target,
+  // ajusta al viewBox real de tu SVG: "ancho/alto"
+  aspect="1280/320",
   ...rest
 } = Astro.props;
 
-/**
- * OBJETIVO (provisional):
- * - Neutralizar TODOS los estilos de variantes (sin tokens, sin clases globales de AstroWind).
- * - Mantener la API (mismas variantes) para que luego, cuando llegue el SVG,
- *   sólo modifiquemos aquí (p.ej., en `evolviaPrimary`) sin tocar llamadas.
- */
+// ÚNICA apariencia: nodo clicable con el SVG de fondo
+const base = [
+  'relative block select-none cursor-pointer',
+  'w-[640px] max-w-[92vw]',
+  // reserva altura con aspect-ratio
+  `aspect-[${aspect}]`,
+  // pinta el SVG sin distorsión
+  'bg-no-repeat bg-contain bg-center',
+  // centra el texto
+  'grid place-items-center px-4 text-center',
+  // accesibilidad
+  'focus:outline-none focus-visible:ring-4 focus-visible:ring-neutral-300/60',
+].join(' ');
 
-// 1) Base neutra (no usa variables de marca, ni clases de la plantilla)
-const baseNeutral =
-  [
-    'inline-flex items-center justify-center gap-2',
-    'px-5 py-2.5 rounded-md',
-    'border border-neutral-300 bg-white text-neutral-900 no-underline',
-    'transition-colors duration-150',
-    'hover:bg-neutral-50',
-    'focus:outline-none focus-visible:ring-4 focus-visible:ring-neutral-300/60',
-    'disabled:opacity-50 disabled:pointer-events-none',
-    'active:translate-y-[0.5px]',
-    'whitespace-nowrap',
-  ].join(' ');
+const computedClass = twMerge(base, className);
+const bgStyle = `background-image: url(${heroSkin});`
 
-// 2) Variantes “apagadas”: dejamos las claves por compatibilidad, pero sin estilos propios
-const variants = {
-  primary: '',
-  secondary: '',
-  tertiary: '',
-  link: '',
-
-  // EvolvIA (todas apagadas, incl. el Hero)
-  Hero: '',
-  outline: '',
-  emerald: '',
-  ghost: '',
-  linkCta: '',
-  ticket: '',
-  discover: '',
-};
-
-// 3) Clase final (si una variante trae clases, se fusionan; ahora todas están vacías a propósito)
-const computedClass = twMerge(baseNeutral, variants[variant] || '', className);
-
-// 4) Render conserva la lógica <button> vs <a>
 const isButtonTag = type === 'button' || type === 'submit' || type === 'reset';
 ---
 
 {isButtonTag ? (
-  <button type={type} class={computedClass} {...rest}>
-    <Fragment set:html={text} />
+  <button type={type} class={computedClass} style={bgStyle} {...rest}>
+    <span class="font-semibold leading-none text-white text-[clamp(14px,2.6vw,18px)]">
+      <Fragment set:html={text} />
+    </span>
   </button>
 ) : (
   <a
     class={computedClass}
+    style={bgStyle}
     {...(target ? { target, rel: 'noopener noreferrer' } : {})}
     {...rest}
   >
-    <Fragment set:html={text} />
+    <span class="font-semibold leading-none text-white text-[clamp(14px,2.6vw,18px)]">
+      <Fragment set:html={text} />
+    </span>
   </a>
 )}
