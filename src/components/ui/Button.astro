@@ -1,70 +1,103 @@
 ---
 import { twMerge } from 'tailwind-merge';
-// Mantengo tu import con ?url (devuelve string URL)
+
+// === SKINS ===
+// Activo solo el HERO. Los otros quedan comentados para no mezclar por ahora.
 import heroSkin from '~/assets/recursos/buttons/Hero.svg?url';
 
+// import emeraldSkin from '~/assets/recursos/buttons/Emerald.svg?url'; // DESACTIVADO
+// import outlineSkin from '~/assets/recursos/buttons/Outline.svg?url'; // DESACTIVADO
+// import ghostSkin from '~/assets/recursos/buttons/Ghost.svg?url';     // DESACTIVADO
+
+// type Variant = 'hero' | 'emerald' | 'outline' | 'ghost';
+
 const {
+  // Contenido
   text = Astro.slots.render('default'),
+
+  // HTML
   class: className = '',
-  type,
+  type, // 'button' | 'submit' | 'reset' (si no, renderiza <a>)
   target,
 
-  // Controles de tamaño (puedes pasarlos desde actions)
-  width = 800,           // px
-  maxWidth = 920,        // px (≈ 92vw, para móvil)
-  aspect = '1280/320',   // viewBox del SVG: "ancho/alto"
-  scale = 1.0,           // 1.0 = sin zoom; 1.1 = 10% más cerca
+  // === Diseño activo ===
+  // variant = 'hero' as Variant, // DESACTIVADO: por ahora solo usamos HERO
+  // skinURL = heroSkin (fijo)
+
+  // Controlopcional
+  width = 1800, // ancho base “deseado” en desktop (px) — solo informativo ahora
+  maxWidth = 2000, // límite absoluto (px) para que nunca se pase
+  aspect = '1280/320', // relación exacta del SVG "ancho/alto"
+  scale = 2.0,
+  textClass = 'text-black', // zoom sobre el SVG (1.0 = normal)
+
+  // Anchos responsivos
+  xsMax = 92, // vw en <640px
+  smMax = 88, // vw en ≥640px
+  mdMax = 72, // vw en ≥768px
+  lgMax = 64, // vw en ≥1024px
+  xlClampPx = 820, // px en ≥1280px
 
   ...rest
 } = Astro.props;
 
-// Estilos inline del wrapper (ganan sobre cualquier w-full externo)
-const styleParts: string[] = [];
-styleParts.push(`width:${width}px`);
-styleParts.push(`max-width:${maxWidth}px`);
-styleParts.push(`aspect-ratio:${aspect.replace('/', ' / ')}`); // CSS requiere espacios alrededor de "/"
-const wrapperStyle = styleParts.join('; ');
+// === SKIN ACTIVO (solo HERO) ===
+const skinURL = heroSkin;
 
-// Wrapper base: grid para centrar texto, sin shrink en flex
+// Wrapper base
 const base = [
   'relative grid place-items-center text-center select-none cursor-pointer shrink-0',
   'overflow-visible', // permite que el <img> se salga si scale > 1
   'focus:outline-none focus-visible:ring-4 focus-visible:ring-neutral-300/60',
 ].join(' ');
 
-const computedClass = twMerge(base, className);
+// Clases de ancho responsivo (fluido + límite por breakpoint)
+// width = min(Xvw, var(--btn-mw))
+const widthClasses = [
+  `w-[min(${xsMax}vw,var(--btn-mw))]`,
+  `sm:w-[min(${smMax}vw,var(--btn-mw))]`,
+  `md:w-[min(${mdMax}vw,var(--btn-mw))]`,
+  `lg:w-[min(${lgMax}vw,var(--btn-mw))]`,
+  `xl:w-[min(${xlClampPx}px,var(--btn-mw))]`,
+].join(' ');
+
+const computedClass = twMerge(base, widthClasses, className);
 const isButtonTag = type === 'button' || type === 'submit' || type === 'reset';
+
+// Inline style: precisión total sin pelear con Tailwind utilities
+const wrapperStyle =
+  `--btn-w:${width}px;` + // por si luego lo quieres usar
+  `--btn-mw:${maxWidth}px;` + // límite absoluto
+  `aspect-ratio:${aspect.replace('/', ' / ')};`; // relación exacta del SVG
 ---
 
-{isButtonTag ? (
-  <button type={type} class={computedClass} style={wrapperStyle} {...rest}>
-    <img
-      src={heroSkin}
-      alt=""
-      aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-contain pointer-events-none"
-      style={`transform:scale(${scale}); transform-origin:center;`}
-    />
-    <span class="relative z-10 font-semibold leading-none text-white text-[clamp(14px,2.6vw,18px)]">
-      <Fragment set:html={text} />
-    </span>
-  </button>
-) : (
-  <a
-    class={computedClass}
-    style={wrapperStyle}
-    {...(target ? { target, rel: 'noopener noreferrer' } : {})}
-    {...rest}
-  >
-    <img
-      src={heroSkin}
-      alt=""
-      aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-contain pointer-events-none"
-      style={`transform:scale(${scale}); transform-origin:center;`}
-    />
-    <span class="relative z-10 font-semibold leading-none text-white text-[clamp(14px,2.6vw,18px)]">
-      <Fragment set:html={text} />
-    </span>
-  </a>
-)}
+{
+  isButtonTag ? (
+    <button type={type} class={computedClass} style={wrapperStyle} {...rest}>
+      <img
+        src={skinURL}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-contain pointer-events-none"
+        style={`transform:scale(${scale});transform-origin:center;`}
+      />
+      <span class={`relative z-10 font-semibold leading-none text-[clamp(14px,2.6vw,18px)] ${textClass}`}>
+        {' '}
+        <Fragment set:html={text} />
+      </span>
+    </button>
+  ) : (
+    <a class={computedClass} style={wrapperStyle} {...(target ? { target, rel: 'noopener noreferrer' } : {})} {...rest}>
+      <img
+        src={skinURL}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-contain pointer-events-none"
+        style={`transform:scale(${scale});transform-origin:center;`}
+      />
+      <span class="relative z-10 font-semibold leading-none text-[clamp(14px,2.6vw,18px)]">
+        <Fragment set:html={text} />
+      </span>
+    </a>
+  )
+}
