@@ -26,9 +26,8 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div 
-    class="pb-2 max-w-3xl mx-auto text-center p-1 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600"
-  >
+  <!-- wrapper SIN tope de ancho -->
+  <div class="pb-2 mx-auto max-w-none text-center p-1 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
     <Headline
       title={title}
       subtitle={subtitle}
@@ -39,20 +38,24 @@ const {
         subtitle: 'text-xl text-muted dark:text-slate-400',
       }}
     />
-    {
-      actions && (
-        <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-2 mt-4">
-          {Array.isArray(actions) ? (
-            actions.map((action) => (
-              <div class="flex w-full sm:w-auto">
-                <Button {...(action || {})} class="w-full sm:mb-0" />
-              </div>
-            ))
-          ) : (
-            <Fragment set:html={actions} />
-          )}
-        </div>
-      )
-    }
+
+    {actions && (
+      <!-- contenedor de acciones SIN max-w y SIN w-full forzado -->
+      <div class="mx-auto w-full flex flex-wrap items-center justify-center gap-4 mt-4 [&>*]:shrink-0">
+        {Array.isArray(actions) ? (
+          actions.map((action) => (
+            <!-- wrapper inmediato que NO encoge en flex -->
+            <div class="flex shrink-0">
+              <Button
+                {...(action || {})}
+                class={`${action?.class || ''}`}  
+              />
+            </div>
+          ))
+        ) : (
+          <Fragment set:html={actions} />
+        )}
+      </div>
+    )}
   </div>
 </WidgetWrapper>
