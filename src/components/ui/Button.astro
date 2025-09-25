@@ -1,6 +1,7 @@
 ---
 import { twMerge } from 'tailwind-merge';
-import heroSkin from '~/assets/recursos/buttons/Hero.svg?url'; // string URL
+// Mantengo tu import con ?url (devuelve string URL)
+import heroSkin from '~/assets/recursos/buttons/Hero.svg?url';
 
 const {
   text = Astro.slots.render('default'),
@@ -8,25 +9,26 @@ const {
   type,
   target,
 
-  // controles de tamaño (ajústalos aquí o pásalos por props)
-  width = 760,            // px
-  maxWidth = 920,         // px (≈ 92vw)
-  aspect = '1280/320',    // usa el viewBox real del SVG (ancho/alto)
-  scale = 1.0,            // 1.0 = sin zoom; 1.1 = 10% más cerca
+  // Controles de tamaño (puedes pasarlos desde actions)
+  width = 800,           // px
+  maxWidth = 920,        // px (≈ 92vw, para móvil)
+  aspect = '1280/320',   // viewBox del SVG: "ancho/alto"
+  scale = 1.0,           // 1.0 = sin zoom; 1.1 = 10% más cerca
 
   ...rest
 } = Astro.props;
 
-// estilos inline del wrapper (ganan sobre w-full externas)
+// Estilos inline del wrapper (ganan sobre cualquier w-full externo)
 const styleParts: string[] = [];
 styleParts.push(`width:${width}px`);
 styleParts.push(`max-width:${maxWidth}px`);
-styleParts.push(`aspect-ratio:${aspect.replace('/', ' / ')}`); // CSS necesita espacios
+styleParts.push(`aspect-ratio:${aspect.replace('/', ' / ')}`); // CSS requiere espacios alrededor de "/"
 const wrapperStyle = styleParts.join('; ');
 
+// Wrapper base: grid para centrar texto, sin shrink en flex
 const base = [
   'relative grid place-items-center text-center select-none cursor-pointer shrink-0',
-  'overflow-visible', // permite que el <img> se “salga” si scale > 1
+  'overflow-visible', // permite que el <img> se salga si scale > 1
   'focus:outline-none focus-visible:ring-4 focus-visible:ring-neutral-300/60',
 ].join(' ');
 
