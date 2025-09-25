@@ -31,9 +31,13 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
     actions={[
       {
         variant: '',
-        text: 'Inicia tu camino estratégico',
+        text: 'Inicia tu camino estratégico', // NBSP para no partir palabras
         href: WA,
         target: '_blank',
+
+        // ↓↓↓ Solo tipografía (no toca tamaño del SVG)
+        textClass: 'text-black leading-tight',
+        textSize: 'text-[clamp(40px,2.2vw,18px)]',
       },
     ]}
     headlineClasses={{
@@ -124,7 +128,15 @@ const WA = 'https://wa.me/573043758478?text=Hola%20EvolvIA%2C%20quiero%20iniciar
 
       <!-- C -->
       <div class="col-span-1 md:col-span-3 mt-8 flex flex-col items-center">
-        <Button variant="discover" text="Descubre EvolvIA" href={WA} target="_blank" class="md:px-12" />
+        <Button
+          variant="discover"
+          text="Descubre EvolvIA"
+          href={WA}
+          target="_blank"
+          class="md:px-12"
+          textClass="text-white"
+          textSize="text-[clamp(40px,2vw,17px)]"
+        />
 
         <!-- Slogan Button -->
         <p class="text-primary mt-5 italic text-center text-lg">

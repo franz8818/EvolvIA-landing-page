@@ -3,6 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.dd *:first-child {
+  margin-top: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
 @layer utilities {
   .bg-page {
     background-color: var(--aw-color-bg-page);
@@ -23,6 +32,24 @@
   .text-emerald {
     color: var(--aw-color-emerald);
   }
+
+  /* En todos los navegadores: intenta no romper línea */
+  .btn-text-nowrap {
+    white-space: nowrap;
+  }
+  /* Parche dedicado para Firefox */
+  @supports (-moz-appearance: none) {
+    .btn-text-nowrap {
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    -webkit-hyphens: none !important;
+    -ms-hyphens: none !important;
+    hyphens: none !important;
+    display: inline-block !important;
+  }
+  }
+  .break-keep { word-break: keep-all; } /* por si quieres sumarlo */
 }
 
 #header.scroll>div:first-child {
@@ -59,11 +86,3 @@
 } */
 
 /* To deprecated */
-.dd *:first-child {
-  margin-top: 0;
-}
-
-html,
-body {
-  overflow-x: hidden;
-}
